@@ -1,0 +1,258 @@
+You are now connected to database "cc_development" as user "mike_varona".
+ interest_id |    interest     
+-------------+-----------------
+           1 | sports
+           2 | art
+           3 | swimming
+           4 | photography
+           5 | travelling
+           6 | music
+           7 | yoga
+           8 | dancing
+           9 | swimming
+          10 | swimming
+          11 | videography
+          12 | shopping
+          13 | food tasting
+          14 | cooking
+          15 | hiking
+          16 | fishing
+          17 | animal watching
+          18 | stargazing
+          19 | bird watching
+          20 | camping
+          21 | gardening
+          22 | reading
+          23 | writing
+          24 | dancing
+          25 | singing
+          26 | acting
+          27 | painting
+          28 | drawing
+          29 | sketching
+          30 | sculpting
+          31 | pottery
+          32 | woodworking
+          33 | knitting
+          34 | sewing
+          35 | quilting
+          36 | crocheting
+          37 | embroidery
+          38 | cross-stitch
+          39 | weaving
+          40 | spinning
+          41 | quilting
+          42 | origami
+          43 | calligraphy
+          44 | jewelry making
+          45 | beading
+          46 | scrapbooking
+          47 | card making
+          48 | metalworking
+          49 | glassblowing
+          50 | pottery
+          51 | leatherworking
+          52 | soapmaking
+          53 | candlemaking
+(53 rows)
+
+ trip_id | creator_id | country | location  |     start_date      |      end_date       
+---------+------------+---------+-----------+---------------------+---------------------
+       1 |          1 | Spain   | Barcelona | 2023-12-01 00:00:00 | 2023-12-12 00:00:00
+       2 |          2 | Croatia | Split     | 2024-12-01 00:00:00 | 2024-12-12 00:00:00
+       3 |          3 | Italy   | Positano  | 2024-01-01 00:00:00 | 2024-01-12 00:00:00
+       4 |          4 | Italy   | Rimini    | 2024-01-01 00:00:00 | 2024-01-10 00:00:00
+       5 |          5 | Italy   | Rome      | 2024-01-03 00:00:00 | 2024-01-08 00:00:00
+       6 |          6 | Spain   | Madrid    | 2023-12-01 00:00:00 | 2024-01-10 00:00:00
+       7 |          5 | Italy   | Naples    | 2023-01-03 00:00:00 | 2023-01-08 00:00:00
+       8 |          4 | Italy   | Venice    | 2023-01-03 00:00:00 | 2023-01-08 00:00:00
+       9 |          3 | Italy   | Florence  | 2023-01-03 00:00:00 | 2023-01-08 00:00:00
+      10 |          2 | Italy   | Milan     | 2023-01-03 00:00:00 | 2023-01-08 00:00:00
+      11 |          1 | Italy   | Turin     | 2023-01-03 00:00:00 | 2023-01-08 00:00:00
+      12 |          6 | Croatia | Zagreb    | 2023-01-03 00:00:00 | 2023-01-08 00:00:00
+      13 |          6 | Croatia | Dubrovnik | 2023-01-03 00:00:00 | 2023-01-08 00:00:00
+      14 |          6 | Croatia | Zadar     | 2023-01-03 00:00:00 | 2023-01-08 00:00:00
+      15 |          6 | Croatia | Pula      | 2023-01-03 00:00:00 | 2023-01-08 00:00:00
+      16 |          6 | Croatia | Rijeka    | 2023-01-03 00:00:00 | 2023-01-08 00:00:00
+      17 |          6 | Croatia | Osijek    | 2023-01-03 00:00:00 | 2023-01-08 00:00:00
+      18 |          6 | Croatia | Poreč     | 2023-01-03 00:00:00 | 2023-01-08 00:00:00
+      19 |          6 | Croatia | Šibenik   | 2023-01-03 00:00:00 | 2023-01-08 00:00:00
+      20 |          6 | Croatia | Trogir    | 2023-01-03 00:00:00 | 2023-01-08 00:00:00
+      21 |          6 | Spain   | Seville   | 2023-01-03 00:00:00 | 2023-01-08 00:00:00
+      22 |          6 | Spain   | Granada   | 2023-01-03 00:00:00 | 2023-01-08 00:00:00
+      23 |          6 | Spain   | Valencia  | 2023-01-03 00:00:00 | 2023-01-08 00:00:00
+      24 |          6 | Spain   | Barcelona | 2023-01-03 00:00:00 | 2023-01-08 00:00:00
+      25 |          7 | Spain   | Madrid    | 2023-01-03 00:00:00 | 2023-01-08 00:00:00
+(25 rows)
+
+ user_id |   username    |  name   |                                                           profile_pic                                                           |     created_at      
+---------+---------------+---------+---------------------------------------------------------------------------------------------------------------------------------+---------------------
+ 1       | butter_bridge | Jonny   | https://www.healthytherapies.com/wp-content/uploads/2016/06/Lime3.jpg                                                           | 2022-12-01 00:00:00
+ 2       | tickle122     | Tom     | https://vignette.wikia.nocookie.net/mrmen/images/7/78/Mr-Grumpy-3A.PNG/revision/latest?cb=20170707233013                        | 2022-10-01 00:00:00
+ 3       | happyamy2016  | Amy     | https://vignette1.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest?cb=20140102171729                           | 2021-12-01 00:00:00
+ 4       | weegembump    | Gemma   | https://vignette.wikia.nocookie.net/mrmen/images/7/7e/MrMen-Bump.png/revision/latest?cb=20180123225553                          | 2023-09-01 00:00:00
+ 5       | jessjelly     | Jess    | https://vignette.wikia.nocookie.net/mrmen/images/4/4f/MR_JELLY_4A.jpg/revision/latest?cb=20180104121141                         | 2021-08-01 00:00:00
+ 6       | cooljmessy    | Peter   | https://vignette.wikia.nocookie.net/mrmen/images/1/1a/MR_MESSY_4A.jpg/revision/latest/scale-to-width-down/250?cb=20170730171002 | 2021-07-01 00:00:00
+ 7       | Bobby         | Bobby   | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest?cb=20140102171729                            | 2021-06-23 01:46:40
+ 8       | Bobby         | Bobby   | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest?cb=20140102171729                            | 2021-06-23 01:46:40
+ 9       | Cathy         | Cathy   | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest?cb=20140102171729                            | 2021-06-23 14:00:00
+ 10      | Daisy         | Daisy   | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest?cb=20140102171729                            | 2021-06-23 14:00:00
+ 11      | Eddy          | Eddy    | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest?cb=20140102171729                            | 2021-06-23 14:00:00
+ 12      | Freddy        | Freddy  | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest?cb=20140102171729                            | 2021-06-23 14:00:00
+ 13      | Gemma         | Gemma   | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest?cb=20140102171729                            | 2021-06-23 14:00:00
+ 14      | Helen         | Helen   | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest/scale-to-width-down/250?cb=20170730171002    | 2021-06-23 14:00:00
+ 15      | Izzy          | Izzy    | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest/scale-to-width-down/250?cb=20170730171002    | 2021-06-23 14:00:00
+ 16      | Jenny         | Jenny   | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest/scale-to-width-down/250?cb=20170730171002    | 2021-06-23 14:00:00
+ 17      | Kathy         | Kathy   | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest/scale-to-width-down/250?cb=20170730171002    | 2021-06-23 14:00:00
+ 18      | Lenny         | Lenny   | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest/scale-to-width-down/250?cb=20170730171002    | 2021-06-23 14:00:00
+ 19      | Mandy         | Mandy   | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest/scale-to-width-down/250?cb=20170730171002    | 2021-06-23 14:00:00
+ 20      | Nancy         | Nancy   | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest/scale-to-width-down/250?cb=20170730171002    | 2021-06-23 14:00:00
+ 21      | Oscar         | Oscar   | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest/scale-to-width-down/250?cb=20180104121141    | 2021-06-23 14:00:00
+ 22      | Penny         | Penny   | https://vignette.wikia.nocookie.net/mrmen/images/4/4f/MR_JELLY_4A.jpg/revision/latest?cb=20180104121141                         | 2021-06-23 14:00:00
+ 23      | Quentin       | Quentin | https://vignette.wikia.nocookie.net/mrmen/images/4/4f/MR_JELLY_4A.jpg/revision/latest?cb=20180104121141                         | 2021-06-23 14:00:00
+ 24      | Randy         | Randy   | https://vignette.wikia.nocookie.net/mrmen/images/4/4f/MR_JELLY_4A.jpg/revision/latest?cb=20180104121141                         | 2021-06-23 14:00:00
+(24 rows)
+
+ card_id | country |     start_date      |      end_date       | creator |   location    
+---------+---------+---------------------+---------------------+---------+---------------
+       1 | Spain   | 2023-01-03 00:00:00 | 2023-01-08 00:00:00 | 5       | Naples
+       2 | Spain   | 2024-01-03 00:00:00 | 2024-01-08 00:00:00 | 5       | Rome
+       3 | Italy   | 2024-01-01 00:00:00 | 2024-01-01 00:00:00 | 5       | Positano
+       4 | Spain   | 2023-12-01 00:00:00 | 2024-01-10 00:00:00 | 5       | Madrid
+       5 | Spain   | 2024-01-03 00:00:00 | 2024-01-08 00:00:00 | 5       | Barcelona
+       6 | Spain   | 2024-01-08 00:00:00 | 2024-01-08 00:00:00 | 5       | Valencia
+       7 | Spain   | 2024-01-12 13:20:00 | 2024-01-12 14:40:00 | 5       | Granada
+       8 | Spain   | 2024-01-12 13:20:00 | 2024-01-12 14:40:00 | 5       | Seville
+       9 | Spain   | 2024-01-12 13:20:00 | 2024-01-12 14:40:00 | 5       | Cordoba
+      10 | Spain   | 2024-01-12 13:20:00 | 2024-01-12 14:40:00 | 5       | Toledo
+      11 | Spain   | 2024-01-12 13:20:00 | 2024-01-12 14:40:00 | 5       | Zaragoza
+      12 | Spain   | 2024-01-12 13:20:00 | 2024-01-12 14:40:00 | 5       | Bilbao
+      13 | Spain   | 2024-01-12 13:20:00 | 2024-01-12 14:40:00 | 5       | San Sebastian
+(13 rows)
+
+ friend_a | friend_b 
+----------+----------
+ 1        | 2
+ 1        | 3
+ 2        | 3
+ 3        | 4
+ 4        | 5
+ 4        | 6
+ 5        | 6
+ 6        | 7
+ 7        | 8
+ 8        | 9
+ 9        | 10
+ 10       | 11
+ 11       | 12
+ 12       | 13
+ 13       | 14
+ 14       | 15
+ 15       | 16
+ 16       | 17
+ 17       | 18
+ 18       | 19
+ 19       | 20
+ 20       | 21
+ 21       | 22
+ 22       | 23
+ 23       | 24
+(25 rows)
+
+ friend_a | friend_b 
+----------+----------
+ 6        | 1
+ 1        | 5
+ 5        | 2
+ 2        | 6
+ 6        | 3
+ 3        | 5
+ 5        | 4
+ 4        | 6
+ 6        | 7
+ 7        | 5
+ 5        | 8
+ 8        | 6
+ 6        | 9
+ 9        | 5
+ 5        | 10
+ 10       | 6
+ 6        | 11
+(17 rows)
+
+ event_id | creator_id |        date         |             short_description              |                                                                                         description                                                                                         |                     location                     
+----------+------------+---------------------+--------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------
+        1 |          1 | 2023-10-11 17:00:00 | Trip to the park                           | Calling all fellow hiking lovers - lets meet and have an amazing time hiking at Gran de la Sagrera                                                                                          | C/ Gran de la Sagrera, 08027 Barcelona, Spain
+        2 |          1 | 2023-09-11 17:00:00 | Trip to the Picasso Museum                 | Calling all fellow art enthusiasts! Picasso Museum was on my to-see-list for a very long time now and the entry fee is only £15pp.                                                          | C/ de Montcada, 15-23, 08003 Barcelona, Spain
+        3 |          2 | 2024-02-11 17:00:00 | Trip to the Diocletian's Palace            | Diocletian's Palace is a huge, fortress-like palace served as a residence for a Roman Emperor & the military garrison.                                                                      | C/ de Montcada, 15-23, 08003 Barcelona, Spain
+        4 |          2 | 2024-02-11 17:00:00 | Trip to the museum of broken relationships | The Museum of Broken Relationships is a museum in Zagreb, Croatia, dedicated to failed love relationships.                                                                                  | Ćirilometodska ul. 2, 10000, Zagreb, Croatia
+        5 |          3 | 2024-02-11 17:00:00 | Trip to the fortress of Klis               | Klis Fortress is a medieval fortress situated above a village bearing the same name, near the city of Split, in central Dalmatia, Croatia.                                                  | Kliška tvrđava, 21231, Klis, Croatia
+        6 |          3 | 2024-02-11 17:00:00 | Trip to the Krka National Park             | Krka National Park is one of the Croatian national parks, named after the river Krka that it encloses.                                                                                      | Lozovac, Croatia
+        7 |          4 | 2024-02-11 17:00:00 | Trip to the Plitvice Lakes National Park   | Plitvice Lakes National Park is a 295-sq.-km forest reserve in central Croatia. It's known for a chain of 16 terraced lakes, joined by waterfalls, that extend into a limestone canyon.     | Plitvička Jezera, Croatia
+        8 |          4 | 2024-02-11 17:00:00 | Trip to the Dubrovnik Old Town             | Dubrovnik is a city in southern Croatia fronting the Adriatic Sea. It's known for its distinctive Old Town, encircled with massive stone walls completed in the 16th century.               | Dubrovnik, Croatia
+        9 |          5 | 2024-02-11 17:00:00 | Trip to the Zagreb Cathedral               | Zagreb Cathedral on Kaptol is a Roman Catholic institution and not only the tallest building in Croatia but also the most monumental sacral building in Gothic style southeast of the Alps. | Kaptol 31, 10000, Zagreb, Croatia
+       10 |          5 | 2024-02-11 17:00:00 | Trip to the Mirogoj Cemetery               | The Mirogoj Cemetery is a cemetery park that is considered to be among the more noteworthy landmarks in the City of Zagreb.                                                                 | Aleja Hermanna Bollea 27, 10000, Zagreb, Croatia
+       11 |          6 | 2024-02-11 17:00:00 | Trip to the Museum of Broken Relationships | The Museum of Broken Relationships is a museum in Zagreb, Croatia, dedicated to failed love relationships.                                                                                  | Ćirilometodska ul. 2, 10000, Zagreb, Croatia
+       12 |          6 | 2024-02-11 17:00:00 | Trip to the Zagreb Cathedral               | Zagreb Cathedral on Kaptol is a Roman Catholic institution and not only the tallest building in Croatia but also the most monumental sacral building in Gothic style southeast of the Alps. | Kaptol 31, 10000, Zagreb, Croatia
+       13 |          7 | 2024-02-11 17:00:00 | Trip to the Diocletian's Palace            | Diocletian's Palace is a huge, fortress-like palace served as a residence for a Roman Emperor & the military garrison.                                                                      | C/ de Montcada, 15-23, 08003 Barcelona, Spain
+       14 |          7 | 2024-02-11 17:00:00 | Trip to the museum of broken relationships | The Museum of Broken Relationships is a museum in Zagreb, Croatia, dedicated to failed love relationships.                                                                                  | Ćirilometodska ul. 2, 10000, Zagreb, Croatia
+       15 |          8 | 2024-02-11 17:00:00 | Trip to the fortress of Klis               | Klis Fortress is a medieval fortress situated above a village bearing the same name, near the city of Split, in central Dalmatia, Croatia.                                                  | Kliška tvrđava, 21231, Klis, Croatia
+       16 |          8 | 2024-02-11 17:00:00 | Trip to the Krka National Park             | Krka National Park is one of the Croatian national parks, named after the river Krka that it encloses.                                                                                      | Lozovac, Croatia
+       17 |          9 | 2024-02-11 17:00:00 | Trip to the Plitvice Lakes National Park   | Plitvice Lakes National Park is a 295-sq.-km forest reserve in central Croatia. It's known for a chain of 16 terraced lakes, joined by waterfalls, that extend into a limestone canyon.     | Plitvička Jezera, Croatia
+(17 rows)
+
+ event_id | user_id 
+----------+---------
+        1 | 6
+        2 | 6
+        3 | 6
+        4 | 6
+        5 | 6
+        6 | 6
+        7 | 6
+        8 | 6
+        9 | 6
+       10 | 6
+       11 | 6
+       12 | 6
+       13 | 6
+       14 | 6
+       15 | 6
+       16 | 6
+       17 | 6
+(17 rows)
+
+ user_id | interest_id 
+---------+-------------
+ 1       |           1
+ 1       |           2
+ 1       |           3
+ 2       |           4
+ 3       |          13
+ 3       |           9
+ 4       |           8
+ 5       |           5
+ 6       |          10
+ 6       |          11
+ 6       |          12
+ 6       |          14
+ 6       |          15
+ 7       |           6
+ 8       |           7
+ 9       |           3
+ 10      |           5
+ 11      |           1
+ 12      |           2
+ 13      |           3
+ 14      |           4
+ 15      |           5
+ 16      |           6
+ 17      |           7
+ 18      |           8
+ 19      |           9
+ 20      |          10
+ 21      |          11
+ 22      |          12
+ 23      |          13
+(30 rows)
+

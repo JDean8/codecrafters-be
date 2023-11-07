@@ -7,17 +7,23 @@
   },
   "devDependencies": {
     "jest": "^29.7.0",
+    "jest-extended": "^4.0.2",
     "supertest": "^6.3.3"
   },
   "name": "codecrafters-be",
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "test": "jest api",
+    "test": "jest",
     "seed": "node ./db/seeds/run-seed",
-    "setup-dbs": "psql -f ./db/setup.sql"
+    "setup-dbs": "psql -f ./db/setup.sql",
+    "playground": "psql -f playground.sql > playground.txt"
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "keywords": [],
+  "description": "",
+  "jest": {
+    "setupFilesAfterEnv": ["jest-extended/all"]
+  }
 }
