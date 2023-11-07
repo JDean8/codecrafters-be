@@ -14,12 +14,14 @@
   },
   "name": "codecrafters-be",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "listen.js",
   "scripts": {
     "test": "jest",
     "seed": "node ./db/seeds/run-seed",
     "setup-dbs": "psql -f ./db/setup.sql",
-    "playground": "psql -f playground.sql > playground.txt"
+    "playground": "psql -f playground.sql > playground.txt",
+    "start": "node listen.js",
+    "seed-prod": "NODE_ENV=production npm run seed"
   },
   "author": "",
   "license": "ISC",
