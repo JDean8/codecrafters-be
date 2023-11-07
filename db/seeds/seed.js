@@ -12,7 +12,7 @@ const seed = ({
   usersData,
   cardsData,
   friendsData,
-  friendsRequestsData,
+  friendRequestsData,
   events_usersData,
   eventsData,
   interests_usersData,
@@ -211,7 +211,7 @@ const seed = ({
         `INSERT INTO friendsRequests
               (friend_a, friend_b)
               VALUES %L RETURNING *;`,
-        friendsRequestsData.map((friend) => {
+              friendRequestsData.map((friend) => {
           return [friend.friend_a, friend.friend_b];
         })
       );

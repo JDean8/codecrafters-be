@@ -1,4 +1,4 @@
-\c cc_test
+\c cc_development
 
 SELECT * FROM interests;
 SELECT * FROM trips;
