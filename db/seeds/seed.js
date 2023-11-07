@@ -18,12 +18,32 @@ const seed = ({
   interests_usersData,
 }) => {
   return db
-    .query(`DROP TABLE IF EXISTS users;`)
+    .query(`DROP TABLE IF EXISTS cards;`)
+    .then(() => {
+      return db.query(`DROP TABLE IF EXISTS friends;`);
+    })
+    .then(() => {
+      return db.query(`DROP TABLE IF EXISTS friendsRequests;`);
+    })
+    .then(() => {
+      
+      return db.query(`DROP TABLE IF EXISTS events_users;`);
+    })
+
+    .then(() => {
+      return db.query(`DROP TABLE IF EXISTS trips;`);
+    })
+    .then(() => {
+      return db.query(`DROP TABLE IF EXISTS events;`);
+    })
+    .then(() => {
+      return db.query(`DROP TABLE IF EXISTS interests_users;`);
+    })
     .then(() => {
       return db.query(`DROP TABLE IF EXISTS interests;`);
     })
     .then(() => {
-      return db.query(`DROP TABLE IF EXISTS trips;`);
+      return db.query(`DROP TABLE IF EXISTS users;`);
     })
     .then(() => {
       return db.query(`
@@ -68,23 +88,24 @@ const seed = ({
       ]);
     })
     .then(() => {
+      
       return db.query(`
       CREATE TABLE friends (
-        friend_a VARCHAR references users(user_id),
-        friend_b VARCHAR references users(user_id)
+        friend_a VARCHAR references users(user_id) ON DELETE CASCADE,
+        friend_b VARCHAR references users(user_id) ON DELETE CASCADE
       );`);
     })
     .then(() => {
       return db.query(`
       CREATE TABLE friendsRequests (
-        friend_a VARCHAR references users(user_id),
-        friend_b VARCHAR references users(user_id)
+        friend_a VARCHAR references users(user_id) ON DELETE CASCADE,
+        friend_b VARCHAR references users(user_id) ON DELETE CASCADE
       );`);
     })
     .then(() => {
       return db.query(`
       CREATE TABLE interests_users (
-        user_id VARCHAR references users(user_id),
+        user_id VARCHAR references users(user_id) ON DELETE CASCADE,
         interest_id INT references interests(interest_id)
       );`);
     })
@@ -92,7 +113,7 @@ const seed = ({
       return db.query(`
       CREATE TABLE events_users (
           event_id integer references events(event_id),
-          user_id VARCHAR references users(user_id)
+          user_id VARCHAR references users(user_id) ON DELETE CASCADE
       );`);
     })
     .then(() => {
@@ -102,7 +123,7 @@ const seed = ({
         country VARCHAR NOT NULL,
         start_date TIMESTAMP NOT NULL,
         end_date TIMESTAMP NOT NULL,
-        creator VARCHAR NOT NULL references users(user_id),
+        creator VARCHAR NOT NULL references users(user_id) ON DELETE CASCADE,
         location VARCHAR NOT NULL
       );`);
     })
@@ -211,7 +232,7 @@ const seed = ({
         `INSERT INTO friendsRequests
               (friend_a, friend_b)
               VALUES %L RETURNING *;`,
-              friendRequestsData.map((friend) => {
+        friendRequestsData.map((friend) => {
           return [friend.friend_a, friend.friend_b];
         })
       );
