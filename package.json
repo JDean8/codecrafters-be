@@ -11,6 +11,7 @@
   "devDependencies": {
     "jest": "^29.7.0",
     "jest-extended": "^4.0.2",
+    "jest-sorted": "^1.0.14",
     "supertest": "^6.3.3"
   },
   "name": "codecrafters-be",
