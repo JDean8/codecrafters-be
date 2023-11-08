@@ -3,7 +3,8 @@ const {
     selectUserById,
     insertUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    selectAllEventsToAttendByUserId,
 } = require("../models/usersModel");
 
 
@@ -48,6 +49,18 @@ exports.deleteUser = (req, res, next) => {
     deleteUser(id)
         .then(() => {
             res.sendStatus(204);
+        })
+        .catch(next);
+}
+
+exports.getAllEventsToAttendByUserId = (req, res, next) => {
+    const {sortBy, order, limit, page} = req.query;
+    const {user_id} = req.params;
+    const promise = [selectUserById(user_id)];
+    if(user_id) promise.push(selectAllEventsToAttendByUserId(user_id, sortBy, order, limit, page));
+    Promise.all(promise)
+        .then(([user, events]) => {
+            res.status(200).send({events});
         })
         .catch(next);
 }

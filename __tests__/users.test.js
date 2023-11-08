@@ -27,6 +27,63 @@ describe("GET /api/users", () => {
       });
   });
 
+  test("200: responds with an array of events to attend given a user_id", () => {
+    return request(app)
+      .get("/api/users/6/events/attending")
+      .expect(200)
+      .then(({ body: { events } }) => {
+        expect(events).toHaveLength(3);
+        events.forEach((event) => {
+          expect(event).toEqual(
+            expect.objectContaining({
+              event_id: expect.any(Number),
+              creator_id: expect.any(Number),
+              date: expect.any(String),
+              short_description: expect.any(String),
+              description: expect.any(String),
+              location: expect.any(String),
+            })
+          );
+        });
+      });
+  });
+
+  test("200: responds with an array of events to attend given a user_id sorted by date ascending by default", () => {
+    return request(app)
+      .get("/api/users/6/events/attending")
+      .expect(200)
+      .then(({ body: { events } }) => {
+        expect(events).toBeSortedBy("date", { ascending: true });
+      });
+  });
+
+  test("200: responds with an array of events to attend given a user_id sorted by location descending", () => {
+    return request(app)
+      .get("/api/users/6/events/attending?sortBy=location&order=desc")
+      .expect(200)
+      .then(({ body: { events } }) => {
+        expect(events).toBeSortedBy("location", { descending: true, coerce : true });
+      });
+  });
+
+  test("200: responds with an amount of events to attend given a user_id limited by a limit query", () => {
+    return request(app)
+      .get("/api/users/6/events/attending?limit=2")
+      .expect(200)
+      .then(({ body: { events } }) => {
+        expect(events).toHaveLength(2);
+      });
+  });
+
+  test("200: responds with an amount of events to attend given a user_id limited by a limit query and a page query", () => {
+    return request(app)
+      .get("/api/users/6/events/attending?limit=1&page=2")
+      .expect(200)
+      .then(({ body: { events } }) => {
+        expect(events).toHaveLength(1);
+      });
+  });
+
   //Error handling
   test("404: responds with a message when passed a non-existent route", () => {
     return request(app)
@@ -73,11 +130,11 @@ describe("POST /api/users", () => {
       .post("/api/users")
       .send({
         user: {
-          user_id: '7',
+          user_id: "7",
           username: "testuser",
           profile_pic: "https://testuser.com",
           name: "test user",
-          created_at: '2022-12-01 00:00:00'
+          created_at: "2022-12-01 00:00:00",
         },
       })
       .expect(201)
@@ -88,7 +145,7 @@ describe("POST /api/users", () => {
             username: expect.any(String),
             profile_pic: expect.any(String),
             name: expect.any(String),
-            created_at: expect.any(String)
+            created_at: expect.any(String),
           })
         );
       });
