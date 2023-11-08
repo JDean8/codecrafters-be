@@ -88,7 +88,7 @@ describe("POST /api/users", () => {
             username: expect.any(String),
             profile_pic: expect.any(String),
             name: expect.any(String),
-            created_at: expect.any(String) 
+            created_at: expect.any(String)
           })
         );
       });
