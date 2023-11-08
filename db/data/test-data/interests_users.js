@@ -30,9 +30,5 @@ module.exports = [
     {
         user_id: '5',
         interest_id: 5
-    },
-    {
-        user_id: '6',
-        interest_id: 10
     }
 ];

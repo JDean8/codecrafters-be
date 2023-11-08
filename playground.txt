@@ -1,4 +1,4 @@
-You are now connected to database "cc_development" as user "mike_varona".
+You are now connected to database "cc_test" as user "karolinakonior".
  interest_id |    interest     
 -------------+-----------------
            1 | sports

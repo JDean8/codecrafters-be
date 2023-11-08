@@ -1,4 +1,4 @@
-\c cc_development
+\c cc_test
 
 SELECT * FROM interests;
 SELECT * FROM trips;
@@ -9,6 +9,8 @@ SELECT * FROM friendsRequests;
 SELECT * FROM events;
 SELECT * FROM events_users;
 SELECT * FROM interests_users;
+
+
 
 
 
