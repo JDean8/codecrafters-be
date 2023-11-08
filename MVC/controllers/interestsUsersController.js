@@ -1,7 +1,7 @@
-const { selectIntrestsByUserId, postUserInterest, deleteInterest } = require("../models/interestsUsersModel");
+const { selectInterestsByUserId, postUserInterest, deleteInterest } = require("../models/interestsUsersModel");
 
 exports.getUserInterests = (req, res) => {
-    selectIntrestsByUserId(req.params.id)
+    selectInterestsByUserId(req.params.id)
         .then((userInterests) => {
             res.status(200).send({ userInterests });
         })

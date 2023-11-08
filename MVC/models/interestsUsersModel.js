@@ -1,11 +1,10 @@
 const db = require("../../db/connection");
-const { map } = require("../../db/data/test-data/interests");
 const { selectAllInterests } = require("./interestsModel");
 const { selectUserById } = require("./usersModel");
 
-exports.selectIntrestsByUserId = (userId) => {
+exports.selectInterestsByUserId = (userId) => {
     return selectUserById(userId)
-        .then((response) => {
+        .then(() => {
             return db.query(`SELECT interests.interest FROM interests
         LEFT JOIN interests_users ON interests.interest_id = interests_users.interest_id
         WHERE interests_users.user_id = $1;`, [userId])
