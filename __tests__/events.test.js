@@ -29,6 +29,75 @@ describe("GET /api/events", () => {
       });
   });
 
+  test("200: responds with an array of event objects sorted by location in ascending order", () => {
+    return request(app)
+      .get("/api/events?sort_by=location&order=asc")
+      .expect(200)
+      .then(({ body: { events } }) => {
+        expect(events).toHaveLength(3);
+        expect(events).toBeSortedBy("location", {
+          ascending: true,
+          coerce: true,
+        });
+      });
+  });
+
+  test("200: responds with an array of event objects sorted by location in descending order", () => {
+    return request(app)
+      .get("/api/events?sort_by=location&order=desc")
+      .expect(200)
+      .then(({ body: { events } }) => {
+        expect(events).toHaveLength(3);
+        expect(events).toBeSortedBy("location", {
+          descending: true,
+          coerce: true,
+        });
+      });
+  });
+
+  test("200: responds with an array of event objects sorted by location in ascending order by default", () => {
+    return request(app)
+      .get("/api/events")
+      .expect(200)
+      .then(({ body: { events } }) => {
+        expect(events).toHaveLength(3);
+        expect(events).toBeSortedBy("location", {
+          ascending: true,
+          coerce: true,
+        });
+      });
+  });
+
+  test("200: responds with an array of event objects sorted by location in ascending order by default when passed an invalid order query", () => {
+    return request(app)
+      .get("/api/events?order=invalid")
+      .expect(200)
+      .then(({ body: { events } }) => {
+        expect(events).toHaveLength(3);
+        expect(events).toBeSortedBy("location", {
+          ascending: true,
+          coerce: true,
+        });
+      });
+  });
+
+  test("200: responds with an amount of event objects specified by the limit query", () => {
+    return request(app)
+      .get("/api/events?limit=2")
+      .expect(200)
+      .then(({ body: { events } }) => {
+        expect(events).toHaveLength(2);
+      });
+  });
+
+  test("200: responds with an array of event objects starting from the offset specified by the page query", () => {
+    return request(app)
+      .get("/api/events?page=2&limit=2")
+      .then(({ body: { events } }) => {
+        expect(events).toHaveLength(1);
+      });
+  });
+
   //Error handling
   test("404: responds with a message when passed a non-existent route", () => {
     return request(app)

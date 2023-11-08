@@ -1,7 +1,13 @@
 const db = require("../../db/connection");
 
-exports.selectAllEvents = () => {
-  return db.query("SELECT * FROM events").then((result) => result.rows);
+exports.selectAllEvents = (sort_by, order, limit, page) => {
+  const orderAux = ["asc", "desc"].includes(order) ? order : "asc"; // asc, desc (default asc)
+  const limitAux = limit || 10; 
+  const pageAux = page || 1; 
+  const offsetAux = (pageAux - 1) * limitAux; // 0, 10, 20, 30, 40, 50, 60, 70, 80, 90
+  const sort_byAux = ["location"].includes(sort_by) ? sort_by : "location"; // location (default location)
+  let SQL  = `SELECT * FROM events ORDER BY ${sort_byAux} ${orderAux} LIMIT $1 OFFSET $2`;
+  return db.query(SQL, [limitAux, offsetAux]).then((result) => result.rows);
 }
 
 exports.selectEventById = (id) => {

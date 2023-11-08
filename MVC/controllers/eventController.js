@@ -7,7 +7,8 @@ const {
 } = require("../models/eventsModel");
 
 exports.getAllEvents = (req, res, next) => {
-  selectAllEvents()
+  const { sort_by, order, limit, page } = req.query;
+  selectAllEvents(sort_by, order, limit, page)
     .then((events) => {
       res.status(200).send({ events });
     })
