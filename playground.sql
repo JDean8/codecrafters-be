@@ -10,6 +10,8 @@ SELECT * FROM events;
 SELECT * FROM events_users;
 SELECT * FROM interests_users;
 
+SELECT * FROM interests_users WHERE user_id = '1';
+
 
 
 

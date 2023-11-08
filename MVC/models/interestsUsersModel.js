@@ -38,3 +38,16 @@ exports.postUserInterest = (userId, interest) => {
                 })
         })
 }
+
+exports.deleteInterest = (userId, interestId) => {
+    return selectUserById(userId)
+        .then(() => {
+            return db.query(`SELECT * FROM interests_users WHERE user_id = $1 AND interest_id = $2;`, [userId, interestId])
+        })
+        .then(({ rows }) => {
+            if (!rows.length) {
+                return Promise.reject({ status: 404, msg: "Interest not found" });
+            }
+            return db.query(`DELETE FROM interests_users WHERE user_id = $1 AND interest_id = $2;`, [userId, interestId])
+        })
+}
