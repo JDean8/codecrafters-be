@@ -8,7 +8,8 @@ const {
 
 
 exports.getAllCards = (req, res, next) => {
-    selectAllCards()
+    const {sort_by, order, limit, page} = req.query;
+    selectAllCards(sort_by, order, limit, page)
         .then((cards) => {
             res.status(200).send({cards});
         })

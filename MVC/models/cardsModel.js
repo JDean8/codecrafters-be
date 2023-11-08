@@ -1,10 +1,14 @@
 const db = require("../../db/connection");
 
-exports.selectAllCards = () => {
-  const sql = "SELECT * FROM cards";
-  return db.query(sql).then(({ rows }) => {
-    return rows;
-  });
+exports.selectAllCards = (sort_by, order, limit, page) => {
+  const sortByAux = ["start_date", "end_date", "location"].includes(sort_by) ? sort_by : "start_date"; // default sort_by is start_date
+  const orderAux = ["asc", "desc"].includes(order) ? order : "asc"; // default order is asc
+  const limitAux = limit ? limit : 10; // default limit is 10
+  const pageAux = page ? page : 1; // default page is 1
+  const offsetAux = (pageAux - 1) * limitAux; // offset is calculated from page and limit values
+
+  const sql = `SELECT * FROM cards ORDER BY ${sortByAux} ${orderAux} LIMIT $1 OFFSET $2`;
+  return db.query(sql, [limitAux, offsetAux]).then((result) => result.rows);
 };
 
 exports.selectCardById = (id) => {

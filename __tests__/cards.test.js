@@ -29,6 +29,43 @@ describe("GET /api/cards", () => {
       });
   });
 
+  test("200: responds with an array of card objects sorted by start_date in ascending order by default", () => {
+    return request(app)
+      .get("/api/cards")
+      .expect(200)
+      .then(({ body: { cards } }) => {
+        expect(cards).toBeSortedBy("start_date", { ascending: true });
+      });
+  });
+
+  test("200: responds with an array of card objects sorted by location in descending order when passed a query", () => {
+    return request(app)
+      .get("/api/cards?sort_by=location&order=desc")
+      .expect(200)
+      .then(({ body: { cards } }) => {
+        expect(cards).toBeSortedBy("location", { descending: true });
+      });
+  });
+
+  test("200: responds with an array of card objects limited to 2 when passed a query", () => {
+    return request(app)
+      .get("/api/cards?limit=2")
+      .expect(200)
+      .then(({ body: { cards } }) => {
+        expect(cards).toHaveLength(2);
+      });
+  });
+
+  test("200: responds with an array of card objects limited to 2 on page 2 when passed a query", () => {
+    return request(app)
+      .get("/api/cards?limit=2&page=2")
+      .expect(200)
+      .then(({ body: { cards } }) => {
+        expect(cards).toHaveLength(2);
+      });
+  });
+
+
   //Error handling
   test("404: responds with a message when passed a non-existent route", () => {
     return request(app)
