@@ -63,7 +63,8 @@ const seed = ({
         username VARCHAR,
         name VARCHAR,
         profile_pic VARCHAR,
-        created_at TIMESTAMP
+        created_at TIMESTAMP,
+        email VARCHAR
       );`);
 
       const interestsTablePromise = db.query(`
@@ -131,7 +132,7 @@ const seed = ({
       const formattedUsers = usersData.map(convertTimestampToDateUsers);
       const insertUserRows = format(
         `INSERT INTO users
-          (user_id, username, name, profile_pic, created_at)
+          (user_id, username, name, profile_pic, created_at, email)
           VALUES %L RETURNING *;`,
         formattedUsers.map((user) => {
           return [
@@ -140,6 +141,7 @@ const seed = ({
             user.name,
             user.profile_pic,
             user.created_at,
+            user.email
           ];
         })
       );
