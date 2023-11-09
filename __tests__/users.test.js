@@ -77,7 +77,8 @@ describe("POST /api/users", () => {
           username: "testuser",
           profile_pic: "https://testuser.com",
           name: "test user",
-          created_at: '2022-12-01 00:00:00'
+          created_at: '2022-12-01 00:00:00',
+          email: "fakeemails@gmail.com"
         },
       })
       .expect(201)
@@ -88,7 +89,8 @@ describe("POST /api/users", () => {
             username: expect.any(String),
             profile_pic: expect.any(String),
             name: expect.any(String),
-            created_at: expect.any(String)
+            created_at: expect.any(String),
+            email: expect.any(String)
           })
         );
       });
