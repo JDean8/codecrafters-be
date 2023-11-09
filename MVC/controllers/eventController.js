@@ -16,8 +16,8 @@ exports.getAllEvents = (req, res, next) => {
 };
 
 exports.getEventById = (req, res, next) => {
-  const { id } = req.params;
-  selectEventById(id)
+  const { event_idParam } = req.params;
+  selectEventById(event_idParam)
     .then((event) => {
       res.status(200).send({ event });
     })
@@ -34,9 +34,9 @@ exports.postEvent = (req, res, next) => {
 };
 
 exports.patchEvent = (req, res, next) => {
-  const { id } = req.params;
+  const { event_idParam } = req.params;
   const { event } = req.body;
-  updateEvent(id, event)
+  updateEvent(event_idParam, event)
     .then((event) => {
       res.status(200).send({ event });
     })
@@ -44,8 +44,8 @@ exports.patchEvent = (req, res, next) => {
 };
 
 exports.deleteEvent = (req, res, next) => {
-  const { id } = req.params;
-  deleteEvent(id)
+  const { event_idParam } = req.params;
+  deleteEvent(event_idParam)
     .then((event) => {
       res.sendStatus(204);
     })
