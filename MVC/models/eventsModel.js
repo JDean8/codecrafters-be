@@ -27,13 +27,16 @@ exports.insertEvent = (event) => {
         !event.date ||
         !event.short_description ||
         !event.description ||
-        !event.location
+        !event.location ||
+        !event.latitude ||
+        !event.longitude ||
+        !event.event_picture
     ) {
         return Promise.reject({ status: 400, msg: "Bad request" });
-  }
-  return db
-    .query(
-      `INSERT INTO events (event_id, creator_id, date, short_description, description, location) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`,
+    }
+    return db
+        .query(
+        "INSERT INTO events (event_id, creator_id, date, short_description, description, location, latitude, longitude, event_picture) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *",
         [
             event.event_id,
             event.creator_id,
@@ -41,13 +44,16 @@ exports.insertEvent = (event) => {
             event.short_description,
             event.description,
             event.location,
+            event.latitude,
+            event.longitude,
+            event.event_picture,
         ]
-    )
-    .then(({ rows }) => {
-      if (!rows.length)
-        return Promise.reject({ status: 404, msg: "Event not found" });
-      return rows[0];
-    });
+        )
+        .then(({ rows }) => {
+        if(!rows.length)
+            return Promise.reject({ status: 404, msg: "Event not found" });
+        return rows[0];
+        });
 }
 
 exports.updateEvent = (id, event) => {
@@ -57,13 +63,16 @@ exports.updateEvent = (id, event) => {
         !event.date ||
         !event.short_description ||
         !event.description ||
-        !event.location
+        !event.location ||
+        !event.latitude ||
+        !event.longitude ||
+        !event.event_picture
     ) {
         return Promise.reject({ status: 400, msg: "Bad request" });
     }
     return db
         .query(
-        "UPDATE events SET event_id = $1, creator_id = $2, date = $3, short_description = $4, description = $5, location = $6 WHERE event_id = $7 RETURNING *",
+        "UPDATE events SET event_id = $1, creator_id = $2, date = $3, short_description = $4, description = $5, location = $6, latitude = $7, longitude = $8, event_picture = $9 WHERE event_id = $10 RETURNING *",
         [
             event.event_id,
             event.creator_id,
@@ -71,6 +80,9 @@ exports.updateEvent = (id, event) => {
             event.short_description,
             event.description,
             event.location,
+            event.latitude,
+            event.longitude,
+            event.event_picture,
             id,
         ]
         )

@@ -13,16 +13,19 @@ describe("GET /api/events", () => {
       .get("/api/events")
       .expect(200)
       .then(({ body: { events } }) => {
-        expect(events).toHaveLength(3);
+        expect(events).toHaveLength(5);
         events.forEach((event) => {
           expect(event).toEqual(
             expect.objectContaining({
               event_id: expect.any(Number),
-              creator_id: expect.any(Number),
+              creator_id: expect.any(String),
               date: expect.any(String),
               short_description: expect.any(String),
               description: expect.any(String),
               location: expect.any(String),
+              latitude: expect.any(Number),
+              longitude: expect.any(Number),
+              event_picture: expect.any(String),
             })
           );
         });
@@ -34,7 +37,7 @@ describe("GET /api/events", () => {
       .get("/api/events?sort_by=location&order=asc")
       .expect(200)
       .then(({ body: { events } }) => {
-        expect(events).toHaveLength(3);
+        expect(events).toHaveLength(5);
         expect(events).toBeSortedBy("location", {
           ascending: true,
           coerce: true,
@@ -47,7 +50,7 @@ describe("GET /api/events", () => {
       .get("/api/events?sort_by=location&order=desc")
       .expect(200)
       .then(({ body: { events } }) => {
-        expect(events).toHaveLength(3);
+        expect(events).toHaveLength(5);
         expect(events).toBeSortedBy("location", {
           descending: true,
           coerce: true,
@@ -60,7 +63,7 @@ describe("GET /api/events", () => {
       .get("/api/events")
       .expect(200)
       .then(({ body: { events } }) => {
-        expect(events).toHaveLength(3);
+        expect(events).toHaveLength(5);
         expect(events).toBeSortedBy("location", {
           ascending: true,
           coerce: true,
@@ -73,7 +76,7 @@ describe("GET /api/events", () => {
       .get("/api/events?order=invalid")
       .expect(200)
       .then(({ body: { events } }) => {
-        expect(events).toHaveLength(3);
+        expect(events).toHaveLength(5);
         expect(events).toBeSortedBy("location", {
           ascending: true,
           coerce: true,
@@ -94,7 +97,7 @@ describe("GET /api/events", () => {
     return request(app)
       .get("/api/events?page=2&limit=2")
       .then(({ body: { events } }) => {
-        expect(events).toHaveLength(1);
+        expect(events).toHaveLength(2);
       });
   });
 
@@ -118,11 +121,14 @@ describe("GET /api/events/:id", () => {
         expect(event).toEqual(
           expect.objectContaining({
             event_id: expect.any(Number),
-            creator_id: expect.any(Number),
+            creator_id: expect.any(String),
             date: expect.any(String),
             short_description: expect.any(String),
             description: expect.any(String),
             location: expect.any(String),
+            latitude: expect.any(Number),
+            longitude: expect.any(Number),
+            event_picture: expect.any(String),
           })
         );
       });
@@ -145,12 +151,16 @@ describe("POST /api/events", () => {
       .post("/api/events")
       .send({
         event: {
-          event_id: 4,
-          creator_id: 1,
+          event_id: 6,
+          creator_id: '1',
           date: "2021-12-12",
           short_description: "Test event",
           description: "Test event description",
           location: "Test location",
+          latitude: 1.834,
+          longitude: 41.595,
+          event_picture:
+            "https://www.google.com/test.png",
         },
       })
       .expect(201)
@@ -158,11 +168,14 @@ describe("POST /api/events", () => {
         expect(event).toEqual(
           expect.objectContaining({
             event_id: expect.any(Number),
-            creator_id: expect.any(Number),
+            creator_id: expect.any(String),
             date: expect.any(String),
             short_description: expect.any(String),
             description: expect.any(String),
             location: expect.any(String),
+            latitude: expect.any(Number),
+            longitude: expect.any(Number),
+            event_picture: expect.any(String),
           })
         );
       });
@@ -195,11 +208,15 @@ describe("PATCH /api/events/:id", () => {
       .send({
         event: {
           event_id: 1,
-          creator_id: 1,
+          creator_id: '1',
           date: "2021-12-12",
           short_description: "Test event",
           description: "Test event description",
           location: "Test location",
+          latitude: 1.834,
+          longitude: 41.595,
+          event_picture:
+            "https://www.google.com/test.png",
         },
       })
       .expect(200)
@@ -207,11 +224,14 @@ describe("PATCH /api/events/:id", () => {
         expect(event).toEqual(
           expect.objectContaining({
             event_id: expect.any(Number),
-            creator_id: expect.any(Number),
+            creator_id: expect.any(String),
             date: expect.any(String),
             short_description: expect.any(String),
             description: expect.any(String),
             location: expect.any(String),
+            latitude: expect.any(Number),
+            longitude: expect.any(Number),
+            event_picture: expect.any(String),
           })
         );
       });
@@ -224,11 +244,15 @@ describe("PATCH /api/events/:id", () => {
       .send({
         event: {
           event_id: 1,
-          creator_id: 1,
+          creator_id: '1',
           date: "2021-12-12",
           short_description: "Test event",
           description: "Test event description",
           location: "Test location",
+          latitude: 1.834,
+          longitude: 41.595,
+          event_picture:
+            "https://www.google.com/test.png",
         },
       })
       .expect(404)
