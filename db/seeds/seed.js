@@ -112,7 +112,7 @@ const seed = ({
     .then(() => {
       return db.query(`
       CREATE TABLE events_users (
-          event_id integer references events(event_id),
+          event_id integer references events(event_id) ON DELETE CASCADE,
           user_id VARCHAR references users(user_id) ON DELETE CASCADE
       );`);
     })
