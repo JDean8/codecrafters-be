@@ -1,4 +1,4 @@
-const { selectAllFriendsFromUserByUserId, deleteUserFriend } = require("../models/friendsModel");
+const { selectAllFriendsFromUserByUserId, deleteUserFriend, selectAllFriendRequestsByUserId, insertFriendRequest, matchFriendRequests } = require("../models/friendsModel");
 const { selectUserById } = require("../models/usersModel");
 
 
@@ -26,4 +26,51 @@ exports.deleteFriend = (req, res, next) => {
         res.status(204).send();
     })
     .catch(next);
+}
+
+exports.getAllFriendRequests = (req, res, next) => {
+    selectUserById(req.params.user_id)
+    .then((user) => {
+        if(!user) return Promise.reject({status: 404, msg: "User not found"})
+        return selectAllFriendRequestsByUserId(req.params.user_id)
+    })
+    .then((friendRequests) => {
+        res.status(200).send({friendRequests});
+    })
+    .catch(next);
+}
+
+exports.postFriendRequest = (req, res, next) => {
+    selectUserById(req.params.user_id)
+    .then((user) => {
+        if(!user) return Promise.reject({status: 404, msg: "User not found"})
+    })
+    .then(() => {
+        return selectAllFriendRequestsByUserId(req.params.user_id)
+    })
+    .then((friendRequests) => {
+        const friendRequest = friendRequests.find((friendRequest) => {
+            return friendRequest.user_id === req.body.friend_id
+        })
+        if(friendRequest) return Promise.reject({status: 400, msg: "Friend request already exists"})
+        return selectAllFriendsFromUserByUserId(req.params.user_id)
+    })
+    .then((friends) => {
+        const friend = friends.find((friend) => {
+            return friend.user_id === req.body.friend_id
+        })
+        if(friend) { 
+            return Promise.reject({status: 400, msg: "Friend already exists"})
+        } else {
+            return insertFriendRequest(req.params.user_id, req.body.friend_id)
+        }
+    })
+    .then((rows) => {
+        res.status(201).send({friendRequest: rows[0]});
+    })
+    .catch(next);
+}
+
+exports.matchFriends = (req, res, next) => {
+    matchFriendRequests(req.params.user_id)
 }

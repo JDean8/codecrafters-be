@@ -1,5 +1,5 @@
 const userRouter = require("express").Router();
-const { getAllFriendsFromUserByUserId, deleteFriend, getAllFriendRequests } = require("../controllers/friendsController");
+const { getAllFriendsFromUserByUserId, deleteFriend, getAllFriendRequests, postFriendRequest, matchFriends } = require("../controllers/friendsController");
 const { getUserInterests, postUserInterest, deleteUserInterest } = require("../controllers/interestsUsersController");
 const {
   getAllUsers,
@@ -15,7 +15,9 @@ userRouter.route("/:id/interests").get(getUserInterests).post(postUserInterest)
 userRouter.route("/:user_id/interests/:interest_id").delete(deleteUserInterest)
 userRouter.route("/:user_id/friends").get(getAllFriendsFromUserByUserId)
 userRouter.route("/:user_id/friends/:friend_id").delete(deleteFriend)
-userRouter.route("/friend-request").get(getAllFriendRequests)
+userRouter.route("/:user_id/friendsrequests").get(getAllFriendRequests)
+userRouter.route("/:user_id/friendsrequests").post(postFriendRequest)
+userRouter.route("/:user_id/matchfriends").post(matchFriends)
 
 
 module.exports = userRouter;

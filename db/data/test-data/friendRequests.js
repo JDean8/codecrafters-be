@@ -6,5 +6,9 @@ module.exports = [
     {
         friend_a: '1',
         friend_b: '5'
+    },
+    {
+        friend_a: '5',
+        friend_b: '1'
     }
 ];

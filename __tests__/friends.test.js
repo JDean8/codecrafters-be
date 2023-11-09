@@ -72,3 +72,70 @@ describe("DELETE /api/users/:user_id/friends/:friend_id", () => {
       });
   });
 })
+
+describe("GET /api/users/:user_id/friendsrequests", () => {
+  test("200: responds with an array of users who have sent friend requests to the user with the given id", () => {
+    return request(app)
+      .get("/api/users/1/friendsrequests")
+      .expect(200)
+      .then(({ body }) => {
+        expect(body.friendRequests).toHaveLength(2);
+        expect(body.friendRequests[0]).toEqual({
+          user_id: '6',
+        });
+        expect(body.friendRequests[1]).toEqual({
+            user_id: '5',
+          });
+      });
+  });
+  test("404: responds with an error message when given a non-existent user id", () => {
+    return request(app)
+      .get("/api/users/100/friendsrequests")
+      .expect(404)
+      .then(({ body }) => {
+        expect(body.msg).toBe("User not found");
+      });
+  })
+})
+
+describe("POST /api/users/:user_id/friendsrequests", () => {
+  test("201: responds with the newly created friend request", () => {
+    return request(app)
+      .post("/api/users/1/friendsrequests")
+      .send({friend_id: '4'})
+      .expect(201)
+      .then(({ body }) => {
+        expect(body.friendRequest).toEqual({
+          friend_a: '1',
+          friend_b: '4',
+        });
+      });
+  });
+  test("400: responds with an error message when given a friend request to already existing friend", () => {
+    return request(app)
+      .post("/api/users/1/friendsrequests")
+      .send({friend_id: '2'})
+      .expect(400)
+      .then(({ body }) => {
+        expect(body.msg).toBe("Friend already exists");
+      });
+  });
+  test("404: responds with an error message when given a non-existent user id", () => {
+    return request(app)
+      .post("/api/users/100/friendsrequests")
+      .send({friend_id: 2})
+      .expect(404)
+      .then(({ body }) => {
+        expect(body.msg).toBe("User not found");
+      });
+  });
+  test("404: responds with an error message when given a non-existent friend id", () => {
+    return request(app)
+      .post("/api/users/1/friendsrequests")
+      .send({friend_id: '200'})
+      .expect(400)
+      .then(({ body }) => {
+        expect(body.msg).toBe("Bad request");
+      });
+  });
+})
