@@ -7,3 +7,4 @@ exports.events_usersData = require("./events_users");
 exports.friendRequestsData = require("./friendRequests");
 exports.friendsData = require("./friends");
 exports.interests_usersData = require("./interests_users");
+exports.commentsData = require("./comments");
