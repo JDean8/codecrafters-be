@@ -1,7 +1,7 @@
 module.exports = [
     {
         card_id: 1,
-        country: "Spain",
+        country: "Italy",
         start_date: 1672704000000,
         end_date: 1673136000000,
         creator: 5,
@@ -9,7 +9,7 @@ module.exports = [
     },
     {
         card_id: 2,
-        country: "Spain",
+        country: "Italy",
         start_date: 1704240000000,
         end_date: 1704672000000,
         creator: 5,
