@@ -72,5 +72,17 @@ exports.postFriendRequest = (req, res, next) => {
 }
 
 exports.matchFriends = (req, res, next) => {
-    matchFriendRequests(req.params.user_id)
+    return selectUserById(req.params.user_id)
+    .then((user) => {
+        if(!user) return Promise.reject({status: 404, msg: "User not found"})
+    })
+    .then(() => {
+        return matchFriendRequests(req.params.user_id)
+    })
+    .then((friends)=> {
+        res.status(200).send({friends});
+    })
+    .catch(error => {
+        next(error)
+    });
 }

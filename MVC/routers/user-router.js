@@ -17,7 +17,7 @@ userRouter.route("/:user_id/friends").get(getAllFriendsFromUserByUserId)
 userRouter.route("/:user_id/friends/:friend_id").delete(deleteFriend)
 userRouter.route("/:user_id/friendsrequests").get(getAllFriendRequests)
 userRouter.route("/:user_id/friendsrequests").post(postFriendRequest)
-userRouter.route("/:user_id/matchfriends").post(matchFriends)
+userRouter.route("/:user_id/matchfriends").get(matchFriends)
 
 
 module.exports = userRouter;

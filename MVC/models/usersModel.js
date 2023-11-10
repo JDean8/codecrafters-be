@@ -69,3 +69,4 @@ exports.deleteUser = (id) => {
       return rows[0];
     });
 };
+

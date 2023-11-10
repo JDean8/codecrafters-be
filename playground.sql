@@ -9,8 +9,6 @@
 -- SELECT * FROM events;
 -- SELECT * FROM events_users;
 -- SELECT * FROM interests_users;
-SELECT * FROM friendsRequests;
-SELECT * FROM friends;
 
 CREATE TEMP TABLE matched_requests_temp AS 
     SELECT * FROM friendsRequests fr1
@@ -19,6 +17,7 @@ CREATE TEMP TABLE matched_requests_temp AS
         WHERE fr1.friend_a = fr2.friend_b
         AND fr1.friend_b = fr2.friend_a
     );
+SELECT * FROM matched_requests_temp;
 
 INSERT INTO friends (friend_a, friend_b)
 SELECT friend_a, friend_b FROM matched_requests_temp;
