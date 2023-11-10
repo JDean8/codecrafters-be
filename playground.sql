@@ -9,9 +9,7 @@ SELECT * FROM events;
 SELECT * FROM events_users;
 SELECT * FROM interests_users;
 SELECT * FROM comments;
-SELECT * FROM comments WHERE event_id = 2;
-
-SELECT * FROM interests_users WHERE user_id = '1';
+SELECT * FROM events_saved;
 
 
 
