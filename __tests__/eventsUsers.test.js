@@ -41,13 +41,20 @@ describe("GET /api/users/:user_id/my-events", () => {
     return request(app)
       .get("/api/users/6/my-events")
       .expect(200)
-      .then(({ body: { eventsUsers } }) => {
-        expect(eventsUsers).toHaveLength(3);
-        eventsUsers.forEach((eventsUser) => {
-          expect(eventsUser).toEqual(
+      .then(({ body: { events } }) => {
+        expect(events).toHaveLength(3);
+        events.forEach((event) => {
+          expect(event).toEqual(
             expect.objectContaining({
               event_id: expect.any(Number),
               user_id: expect.any(String),
+              location: expect.any(String),
+              date: expect.any(String),
+              short_description: expect.any(String),
+              description: expect.any(String),
+              event_picture: expect.any(String),
+              latitude: expect.any(Number),
+              longitude: expect.any(Number),
             })
           );
         });

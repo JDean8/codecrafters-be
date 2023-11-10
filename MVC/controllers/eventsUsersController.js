@@ -18,11 +18,12 @@ exports.getAllEventsUsers = (req, res, next) => {
 
 exports.getEventsUsersByUserId = (req, res, next) => {
   const { userId } = req.params;
+  const { sort_by, order, limit, page } = req.query;
   const promise = [selectUserById(userId)];
-  if (userId) promise.push(selectEventsUsersByUserId(userId));
+  if (userId) promise.push(selectEventsUsersByUserId(userId, sort_by, order, limit, page));
   Promise.all(promise)
-    .then(([user, eventsUsers]) => {
-      res.status(200).send({ eventsUsers });
+    .then(([user, events]) => {
+      res.status(200).send({ events });
     })
     .catch(next);
 };
