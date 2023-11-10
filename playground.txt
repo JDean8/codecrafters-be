@@ -85,32 +85,6 @@ You are now connected to database "cc_development" as user "mike_varona".
       25 |          7 | Spain   | Madrid    | 2023-01-03 00:00:00 | 2023-01-08 00:00:00
 (25 rows)
 
- user_id |   username    |  name   |                                                           profile_pic                                                           |     created_at      
----------+---------------+---------+---------------------------------------------------------------------------------------------------------------------------------+---------------------
- 1       | butter_bridge | Jonny   | https://www.healthytherapies.com/wp-content/uploads/2016/06/Lime3.jpg                                                           | 2022-12-01 00:00:00
- 2       | tickle122     | Tom     | https://vignette.wikia.nocookie.net/mrmen/images/7/78/Mr-Grumpy-3A.PNG/revision/latest?cb=20170707233013                        | 2022-10-01 00:00:00
- 3       | happyamy2016  | Amy     | https://vignette1.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest?cb=20140102171729                           | 2021-12-01 00:00:00
- 4       | weegembump    | Gemma   | https://vignette.wikia.nocookie.net/mrmen/images/7/7e/MrMen-Bump.png/revision/latest?cb=20180123225553                          | 2023-09-01 00:00:00
- 5       | jessjelly     | Jess    | https://vignette.wikia.nocookie.net/mrmen/images/4/4f/MR_JELLY_4A.jpg/revision/latest?cb=20180104121141                         | 2021-08-01 00:00:00
- 6       | cooljmessy    | Peter   | https://vignette.wikia.nocookie.net/mrmen/images/1/1a/MR_MESSY_4A.jpg/revision/latest/scale-to-width-down/250?cb=20170730171002 | 2021-07-01 00:00:00
- 7       | Bobby         | Bobby   | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest?cb=20140102171729                            | 2021-06-23 01:46:40
- 8       | Bobby         | Bobby   | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest?cb=20140102171729                            | 2021-06-23 01:46:40
- 9       | Cathy         | Cathy   | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest?cb=20140102171729                            | 2021-06-23 14:00:00
- 10      | Daisy         | Daisy   | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest?cb=20140102171729                            | 2021-06-23 14:00:00
- 11      | Eddy          | Eddy    | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest?cb=20140102171729                            | 2021-06-23 14:00:00
- 12      | Freddy        | Freddy  | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest?cb=20140102171729                            | 2021-06-23 14:00:00
- 13      | Gemma         | Gemma   | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest?cb=20140102171729                            | 2021-06-23 14:00:00
- 14      | Helen         | Helen   | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest/scale-to-width-down/250?cb=20170730171002    | 2021-06-23 14:00:00
- 15      | Izzy          | Izzy    | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest/scale-to-width-down/250?cb=20170730171002    | 2021-06-23 14:00:00
- 16      | Jenny         | Jenny   | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest/scale-to-width-down/250?cb=20170730171002    | 2021-06-23 14:00:00
- 17      | Kathy         | Kathy   | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest/scale-to-width-down/250?cb=20170730171002    | 2021-06-23 14:00:00
- 18      | Lenny         | Lenny   | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest/scale-to-width-down/250?cb=20170730171002    | 2021-06-23 14:00:00
- 19      | Mandy         | Mandy   | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest/scale-to-width-down/250?cb=20170730171002    | 2021-06-23 14:00:00
- 20      | Nancy         | Nancy   | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest/scale-to-width-down/250?cb=20170730171002    | 2021-06-23 14:00:00
- 21      | Oscar         | Oscar   | https://vignette.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest/scale-to-width-down/250?cb=20180104121141    | 2021-06-23 14:00:00
- 22      | Penny         | Penny   | https://vignette.wikia.nocookie.net/mrmen/images/4/4f/MR_JELLY_4A.jpg/revision/latest?cb=20180104121141                         | 2021-06-23 14:00:00
- 23      | Quentin       | Quentin | https://vignette.wikia.nocookie.net/mrmen/images/4/4f/MR_JELLY_4A.jpg/revision/latest?cb=20180104121141                         | 2021-06-23 14:00:00
- 24      | Randy         | Randy   | https://vignette.wikia.nocookie.net/mrmen/images/4/4f/MR_JELLY_4A.jpg/revision/latest?cb=20180104121141                         | 2021-06-23 14:00:00
 (24 rows)
 
  card_id | country |     start_date      |      end_date       | creator |   location    
@@ -180,26 +154,6 @@ You are now connected to database "cc_development" as user "mike_varona".
  6        | 11
 (17 rows)
 
- event_id | creator_id |        date         |             short_description              |                                                                                         description                                                                                         |                     location                     
-----------+------------+---------------------+--------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------
-        1 |          1 | 2023-10-11 17:00:00 | Trip to the park                           | Calling all fellow hiking lovers - lets meet and have an amazing time hiking at Gran de la Sagrera                                                                                          | C/ Gran de la Sagrera, 08027 Barcelona, Spain
-        2 |          1 | 2023-09-11 17:00:00 | Trip to the Picasso Museum                 | Calling all fellow art enthusiasts! Picasso Museum was on my to-see-list for a very long time now and the entry fee is only £15pp.                                                          | C/ de Montcada, 15-23, 08003 Barcelona, Spain
-        3 |          2 | 2024-02-11 17:00:00 | Trip to the Diocletian's Palace            | Diocletian's Palace is a huge, fortress-like palace served as a residence for a Roman Emperor & the military garrison.                                                                      | C/ de Montcada, 15-23, 08003 Barcelona, Spain
-        4 |          2 | 2024-02-11 17:00:00 | Trip to the museum of broken relationships | The Museum of Broken Relationships is a museum in Zagreb, Croatia, dedicated to failed love relationships.                                                                                  | Ćirilometodska ul. 2, 10000, Zagreb, Croatia
-        5 |          3 | 2024-02-11 17:00:00 | Trip to the fortress of Klis               | Klis Fortress is a medieval fortress situated above a village bearing the same name, near the city of Split, in central Dalmatia, Croatia.                                                  | Kliška tvrđava, 21231, Klis, Croatia
-        6 |          3 | 2024-02-11 17:00:00 | Trip to the Krka National Park             | Krka National Park is one of the Croatian national parks, named after the river Krka that it encloses.                                                                                      | Lozovac, Croatia
-        7 |          4 | 2024-02-11 17:00:00 | Trip to the Plitvice Lakes National Park   | Plitvice Lakes National Park is a 295-sq.-km forest reserve in central Croatia. It's known for a chain of 16 terraced lakes, joined by waterfalls, that extend into a limestone canyon.     | Plitvička Jezera, Croatia
-        8 |          4 | 2024-02-11 17:00:00 | Trip to the Dubrovnik Old Town             | Dubrovnik is a city in southern Croatia fronting the Adriatic Sea. It's known for its distinctive Old Town, encircled with massive stone walls completed in the 16th century.               | Dubrovnik, Croatia
-        9 |          5 | 2024-02-11 17:00:00 | Trip to the Zagreb Cathedral               | Zagreb Cathedral on Kaptol is a Roman Catholic institution and not only the tallest building in Croatia but also the most monumental sacral building in Gothic style southeast of the Alps. | Kaptol 31, 10000, Zagreb, Croatia
-       10 |          5 | 2024-02-11 17:00:00 | Trip to the Mirogoj Cemetery               | The Mirogoj Cemetery is a cemetery park that is considered to be among the more noteworthy landmarks in the City of Zagreb.                                                                 | Aleja Hermanna Bollea 27, 10000, Zagreb, Croatia
-       11 |          6 | 2024-02-11 17:00:00 | Trip to the Museum of Broken Relationships | The Museum of Broken Relationships is a museum in Zagreb, Croatia, dedicated to failed love relationships.                                                                                  | Ćirilometodska ul. 2, 10000, Zagreb, Croatia
-       12 |          6 | 2024-02-11 17:00:00 | Trip to the Zagreb Cathedral               | Zagreb Cathedral on Kaptol is a Roman Catholic institution and not only the tallest building in Croatia but also the most monumental sacral building in Gothic style southeast of the Alps. | Kaptol 31, 10000, Zagreb, Croatia
-       13 |          7 | 2024-02-11 17:00:00 | Trip to the Diocletian's Palace            | Diocletian's Palace is a huge, fortress-like palace served as a residence for a Roman Emperor & the military garrison.                                                                      | C/ de Montcada, 15-23, 08003 Barcelona, Spain
-       14 |          7 | 2024-02-11 17:00:00 | Trip to the museum of broken relationships | The Museum of Broken Relationships is a museum in Zagreb, Croatia, dedicated to failed love relationships.                                                                                  | Ćirilometodska ul. 2, 10000, Zagreb, Croatia
-       15 |          8 | 2024-02-11 17:00:00 | Trip to the fortress of Klis               | Klis Fortress is a medieval fortress situated above a village bearing the same name, near the city of Split, in central Dalmatia, Croatia.                                                  | Kliška tvrđava, 21231, Klis, Croatia
-       16 |          8 | 2024-02-11 17:00:00 | Trip to the Krka National Park             | Krka National Park is one of the Croatian national parks, named after the river Krka that it encloses.                                                                                      | Lozovac, Croatia
-       17 |          9 | 2024-02-11 17:00:00 | Trip to the Plitvice Lakes National Park   | Plitvice Lakes National Park is a 295-sq.-km forest reserve in central Croatia. It's known for a chain of 16 terraced lakes, joined by waterfalls, that extend into a limestone canyon.     | Plitvička Jezera, Croatia
-(17 rows)
 
  event_id | user_id 
 ----------+---------
@@ -213,14 +167,6 @@ You are now connected to database "cc_development" as user "mike_varona".
         8 | 6
         9 | 6
        10 | 6
-       11 | 6
-       12 | 6
-       13 | 6
-       14 | 6
-       15 | 6
-       16 | 6
-       17 | 6
-(17 rows)
 
  user_id | interest_id 
 ---------+-------------
@@ -255,28 +201,6 @@ You are now connected to database "cc_development" as user "mike_varona".
  22      |          12
  23      |          13
 (30 rows)
-
- comment_id |                                                                      body                                                                      | user_id | event_id |     created_at      
-------------+------------------------------------------------------------------------------------------------------------------------------------------------+---------+----------+---------------------
-          1 | Oh, I've got compassion running out of my nose, pal! I'm the Sultan of Sentiment!                                                              | 1       |        2 | 2020-04-06 13:17:00
-          2 | I'm a thing that makes predictable jokes based on my personality!                                                                              | 2       |        3 | 2020-10-31 03:03:00
-          3 | Remember the time he ate my goldfish? And you lied and said I never had goldfish. Then why did I have the bowl, Bart? Why did I have the bowl? | 3       |        1 | 2020-03-01 01:13:00
-          4 | We started out like Romeo and Juliet, but it ended up in tragedy.                                                                              | 4       |        2 | 2020-02-23 12:01:00
-          5 | I'm allergic to bee stings. They cause me to, uh, die.                                                                                         | 5       |        3 | 2020-04-11 22:02:00
-          6 | Ahh, sweet liquor eases the pain.                                                                                                              | 6       |        1 | 2020-03-01 01:13:00
-          7 | Please don't tell anyone how I live.                                                                                                           | 7       |        2 | 2020-02-23 12:01:00
-          8 | But my mom says I'm cool.                                                                                                                      | 8       |        4 | 2020-04-11 22:02:00
-          9 | Can't talk, eating.                                                                                                                            | 9       |        6 | 2020-03-01 01:13:00
-         10 | I'm in no condition to drive...wait! I shouldn't listen to myself, I'm drunk!                                                                  | 10      |        5 | 2020-02-23 12:01:00
-         11 | Don't you hate pants?                                                                                                                          | 11      |        4 | 2020-04-11 22:02:00
-(11 rows)
-
- comment_id |                                       body                                        | user_id | event_id |     created_at      
-------------+-----------------------------------------------------------------------------------+---------+----------+---------------------
-          1 | Oh, I've got compassion running out of my nose, pal! I'm the Sultan of Sentiment! | 1       |        2 | 2020-04-06 13:17:00
-          4 | We started out like Romeo and Juliet, but it ended up in tragedy.                 | 4       |        2 | 2020-02-23 12:01:00
-          7 | Please don't tell anyone how I live.                                              | 7       |        2 | 2020-02-23 12:01:00
-(3 rows)
 
  user_id | interest_id 
 ---------+-------------
