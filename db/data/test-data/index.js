@@ -1,7 +1,6 @@
 exports.interestsData = require("./interests");
 exports.usersData = require("./users");
 exports.tripsData = require("./trips");
-exports.cardsData = require("./cards");
 exports.eventsData = require("./events");
 exports.events_usersData = require("./events_users");
 exports.friendRequestsData = require("./friendRequests");
