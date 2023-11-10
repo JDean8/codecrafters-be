@@ -48,12 +48,14 @@ const seed = ({
     .then(() => {
       return db.query(`
         CREATE TABLE trips (
-            trip_id integer PRIMARY KEY,
-            creator_id integer,
-            country VARCHAR,
-            location VARCHAR,
-            start_date TIMESTAMP,
-            end_date TIMESTAMP
+            trip_id SERIAL PRIMARY KEY,
+            creator_id VARCHAR NOT NULL,
+            country VARCHAR NOT NULL,
+            location VARCHAR NOT NULL,
+            start_date TIMESTAMP NOT NULL,
+            end_date TIMESTAMP NOT NULL,
+            latitude FLOAT,
+            longitude FLOAT
         );`);
     })
     .then(() => {
@@ -183,16 +185,17 @@ const seed = ({
       const formattedTrips = tripsData.map(convertTimestampToDateTrips);
       const insertTripRows = format(
         `INSERT INTO trips
-          (trip_id, creator_id, country, location, start_date, end_date)
+          (creator_id, country, location, start_date, end_date, latitude, longitude)
           VALUES %L RETURNING *;`,
         formattedTrips.map((trip) => {
           return [
-            trip.trip_id,
             trip.creator_id,
             trip.country,
             trip.location,
             trip.start_date,
             trip.end_date,
+            trip.latitude,
+            trip.longitude,
           ];
         })
       );
