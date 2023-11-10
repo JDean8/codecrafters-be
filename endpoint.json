@@ -1,0 +1,406 @@
+{
+  "GET /api": {
+    "description": "serves up a json representation of all the available endpoints of the api"
+  },
+  "GET /api/users": {
+    "description": "serves an array of all users",
+    "queries": [],
+    "exampleResponse": {
+      "users": [
+        {
+          "user_id": "1",
+          "username": "butter_bridge",
+          "name": "Jonny",
+          "profile_pic": "https://www.healthytherapies.com/wp-content/uploads/2016/06/Lime3.jpg",
+          "created_at": 1669852800000,
+          "email": "fakeemail1@gmrail.com"
+        },
+        {
+          "user_id": "2",
+          "username": "grumpy19",
+          "name": "Paul",
+          "profile_pic": "https://vignette.wikia.nocookie.net/mrmen/images/4/49/Mr-grumpy.jpg/revision/latest?cb=20180104121141",
+          "created_at": 1610966400000,
+          "email": "fakeemail1@gmrail.com"
+        },
+        {
+          "user_id": "3",
+          "username": "happyamy2016",
+          "name": "Amy",
+          "profile_pic": "https://vignette.wikia.nocookie.net/mrmen/images/4/4c/MR_HAPPY_4A.jpg/revision/latest?cb=20170730170959",
+          "created_at": 1610966400000,
+          "email": "fakeemail3@gmrail.com"
+        }
+      ]
+    }
+  },
+  "POST /api/users": {
+    "description": "serves a new user object",
+    "queries": [],
+    "exampleResponse": {
+      "user": {
+        "user_id": "4",
+        "username": "happyamy2016",
+        "name": "Amy",
+        "profile_pic": "https://vignette.wikia.nocookie.net/mrmen/images/4/4c/MR_HAPPY_4A.jpg/revision/latest?cb=20170730170959",
+        "created_at": 1610966400000,
+        "email": "fakeemail4@gmrail.com"
+      }
+    }
+  },
+  "GET /api/users/:user_id": {
+    "description": "serves an user object for the specified user_id",
+    "queries": [],
+    "exampleResponse": {
+      "user": {
+        "user_id": "1",
+        "username": "butter_bridge",
+        "name": "Jonny",
+        "profile_pic": "https://www.healthytherapies.com/wp-content/uploads/2016/06/Lime3.jpg",
+        "created_at": 1669852800000,
+        "email": "fakeemail1@gmrail.com"
+      }
+    }
+  },
+  "PATCH /api/users/:user_id": {
+    "description": "serves an updated user object for the specified user_id",
+    "queries": [],
+    "exampleResponse": {
+      "user": {
+        "user_id": "1",
+        "username": "butter_bridge",
+        "name": "Jonny",
+        "profile_pic": "https://www.healthytherapies.com/wp-content/uploads/2016/06/Lime3.jpg",
+        "created_at": 1669852800000,
+        "email": "fakeemail1Updated@gmrail.com"
+      }
+    }
+  },
+  "DELETE /api/users/:user_id": {
+    "description": "serves a status 204 and no content",
+    "queries": [],
+    "exampleResponse": ""
+  },
+  "GET /api/users/:user_id/interests": {
+    "description": "serves an array of all interests for the specified user_id",
+    "queries": [],
+    "exampleResponse": {
+      "interests": [
+        {
+          "interest": "swimming",
+          "interest_id": 3
+        },
+        {
+          "interest": "travelling",
+          "interest_id": 5
+        },
+        {
+          "interest": "music",
+          "interest_id": 6
+        },
+        {
+          "interest": "videography",
+          "interest_id": 11
+        },
+        {
+          "interest": "sewing",
+          "interest_id": 34
+        },
+        {
+          "interest": "calligraphy",
+          "interest_id": 43
+        },
+        {
+          "interest": "beading",
+          "interest_id": 45
+        }
+      ]
+    }
+  },
+  "POST /api/users/:user_id/interests": {
+    "description": "serves a new interest object for the specified user_id",
+    "queries": [],
+    "exampleResponse": {
+      "interest": {
+        "interest": "swimming",
+        "interest_id": 3
+      }
+    }
+  },
+  "DELETE /api/users/:user_id/interests/:interest_id": {
+    "description": "serves a status 204 and no content",
+    "queries": [],
+    "exampleResponse": ""
+  },
+  "GET /api/users/:user_id/my-events": {
+    "description": "serves an array of all events for the specified user_id",
+    "queries": [],
+    "exampleResponse": {
+      "events-users": [
+        {
+          "event_id": 1,
+          "user_id": "6"
+        },
+        {
+          "event_id": 2,
+          "user_id": "6"
+        },
+        {
+          "event_id": 3,
+          "user_id": "6"
+        },
+        {
+          "event_id": 4,
+          "user_id": "6"
+        },
+        {
+          "event_id": 5,
+          "user_id": "6"
+        }
+      ]
+    }
+  },
+  "DELETE /api/users/:user_id/my-events/:event_id": {
+    "description": "serves a status 204 and no content",
+    "queries": [],
+    "exampleResponse": ""
+  },
+  "POST /api/users/:user_id/my-events/:event_id": {
+    "description": "serves a new event object events-users for the specified user_id and event_id",
+    "queries": [],
+    "exampleResponse": {
+      "events-users": {
+        "event_id": 1,
+        "user_id": "6"
+      }
+    }
+  },
+  "GET /api/interests": {
+    "description": "serves an array of all interests",
+    "queries": [],
+    "exampleResponse": {
+      "interests": [
+        {
+          "interest": "swimming",
+          "interest_id": 3
+        },
+        {
+          "interest": "travelling",
+          "interest_id": 5
+        },
+        {
+          "interest": "music",
+          "interest_id": 6
+        },
+        {
+          "interest": "videography",
+          "interest_id": 11
+        },
+        {
+          "interest": "sewing",
+          "interest_id": 34
+        },
+        {
+          "interest": "calligraphy",
+          "interest_id": 43
+        },
+        {
+          "interest": "beading",
+          "interest_id": 45
+        }
+      ]
+    }
+  },
+  "GET /api/events": {
+    "description": "serves an array of all events",
+    "queries": ["sort_by", "order", "limit", "page"],
+    "exampleResponse": {
+      "events": [
+        {
+          "event_id": 10,
+          "creator_id": "10",
+          "date": "2015-07-01T10:40:00.000Z",
+          "short_description": "Trip to the canal",
+          "description": "Calling all fellow canal lovers - lets meet and have an amazing time at the canal in Amsterdam",
+          "location": "Amsterdam, Netherlands",
+          "latitude": 4.899,
+          "longitude": 52.371,
+          "event_picture": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/74/c9/cf/caption.jpg?w=700&h=-1&s=1"
+        },
+        {
+          "event_id": 2,
+          "creator_id": "2",
+          "date": "2023-10-16T08:13:20.000Z",
+          "short_description": "Trip to the beach",
+          "description": "Calling all fellow beach lovers - lets meet and have an amazing time at Barceloneta beach",
+          "location": "Barceloneta Beach, 08003 Barcelona, Spain",
+          "latitude": 2.189,
+          "longitude": 41.381,
+          "event_picture": "https://media.cnn.com/api/v1/images/stellar/prod/180528121348-04-barcelona-beach-guide.jpg?q=w_3800,h_2137,x_0,y_0,c_fill"
+        },
+        {
+          "event_id": 1,
+          "creator_id": "1",
+          "date": "2023-10-11T17:00:00.000Z",
+          "short_description": "Trip to the park",
+          "description": "Calling all fellow hiking lovers - lets meet and have an amazing time hiking at Gran de la Sagrera",
+          "location": "C/ Gran de la Sagrera, 08027 Barcelona, Spain",
+          "latitude": 2.185,
+          "longitude": 41.416,
+          "event_picture": "https://media.timeout.com/images/100669361/750/562/image.jpg"
+        },
+        {
+          "event_id": 5,
+          "creator_id": "5",
+          "date": "2024-01-03T00:00:00.000Z",
+          "short_description": "Trip to the aquarium",
+          "description": "Calling all fellow aquarium lovers - lets meet and have an amazing time at the aquarium in Germany",
+          "location": "Germany Aquarium, Germany",
+          "latitude": 9.993,
+          "longitude": 53.551,
+          "event_picture": "https://media.cnn.com/api/v1/images/stellar/prod/180619151734-aquarium-design-4.jpg?q=w_2598,h_1732,x_0,y_0,c_fill/h_618"
+        }
+      ]
+    }
+  },
+  "POST /api/events": {
+    "description": "serves a new event object",
+    "queries": [],
+    "exampleResponse": {
+      "event": {
+        "event_id": 10,
+        "creator_id": "10",
+        "date": "2015-07-01T10:40:00.000Z",
+        "short_description": "Trip to the canal",
+        "description": "Calling all fellow canal lovers - lets meet and have an amazing time at the canal in Amsterdam",
+        "location": "Amsterdam, Netherlands",
+        "latitude": 4.899,
+        "longitude": 52.371,
+        "event_picture": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/74/c9/cf/caption.jpg?w=700&h=-1&s=1"
+      }
+    }
+  },
+  "GET /api/events/:event_id": {
+    "description": "serves an event object for the specified event_id",
+    "queries": [],
+    "exampleResponse": {
+      "event": {
+        "event_id": 10,
+        "creator_id": "10",
+        "date": "2015-07-01T10:40:00.000Z",
+        "short_description": "Trip to the canal",
+        "description": "Calling all fellow canal lovers - lets meet and have an amazing time at the canal in Amsterdam",
+        "location": "Amsterdam, Netherlands",
+        "latitude": 4.899,
+        "longitude": 52.371,
+        "event_picture": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/74/c9/cf/caption.jpg?w=700&h=-1&s=1"
+      }
+    }
+  },
+  "PATCH /api/events/:event_id": {
+    "description": "serves an updated event object for the specified event_id",
+    "queries": [],
+    "exampleResponse": {
+      "event": {
+        "event_id": 10,
+        "creator_id": "10",
+        "date": "2015-07-01T10:40:00.000Z",
+        "short_description": "Trip to the canal",
+        "description": "Calling all fellow canal lovers - lets meet and have an amazing time at the canal in Amsterdam",
+        "location": "Amsterdam, Netherlands",
+        "latitude": 4.899,
+        "longitude": 52.371,
+        "event_picture": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/74/c9/cf/caption.jpg?w=700&h=-1&s=1"
+      }
+    }
+  },
+  "DELETE /api/events/:event_id": {
+    "description": "serves a status 204 and no content",
+    "queries": [],
+    "exampleResponse": ""
+  },
+  "GET /api/events/:event_id/comments": {
+    "description": "serves an array of all comments for the specified event_id",
+    "queries": ["limit", "page"],
+    "exampleResponse": {
+      "comments": [
+        {
+          "comment_id": 1,
+          "body": "Oh, I've got compassion running out of my nose, pal! I'm the Sultan of Sentiment!",
+          "user_id": "1",
+          "event_id": 2,
+          "created_at": "2020-04-06T13:17:00.000Z"
+        },
+        {
+          "comment_id": 4,
+          "body": "We started out like Romeo and Juliet, but it ended up in tragedy.",
+          "user_id": "4",
+          "event_id": 2,
+          "created_at": "2020-02-23T12:01:00.000Z"
+        },
+        {
+          "comment_id": 7,
+          "body": "Please don't tell anyone how I live.",
+          "user_id": "7",
+          "event_id": 2,
+          "created_at": "2020-02-23T12:01:00.000Z"
+        }
+      ]
+    }
+  },
+  "POST /api/events/:event_id/comments": {
+    "description": "serves a new comment object for the specified event_id",
+    "queries": [],
+    "exampleResponse": {
+      "comment": {
+        "comment_id": 1,
+        "body": "Oh, I've got compassion running out of my nose, pal! I'm the Sultan of Sentiment!",
+        "user_id": "1",
+        "event_id": 2,
+        "created_at": "2020-04-06T13:17:00.000Z"
+      }
+    }
+  },
+  "GET /api/events/:event_id/comments/:comment_id": {
+    "description": "serves a comment object for the specified comment_id",
+    "queries": [],
+    "exampleResponse": {
+      "comment": {
+        "comment_id": 1,
+        "body": "Oh, I've got compassion running out of my nose, pal! I'm the Sultan of Sentiment!",
+        "user_id": "1",
+        "event_id": 2,
+        "created_at": "2020-04-06T13:17:00.000Z"
+      }
+    }
+  },
+  "DELETE /api/events/:event_id/comments/:comment_id": {
+    "description": "serves a status 204 and no content",
+    "queries": [],
+    "exampleResponse": ""
+  },
+  "GET /api/events-users": {
+    "description": "serves an array of userIds related to an eventId",
+    "queries": [],
+    "exampleResponse": {
+      "events-users": [
+        {
+          "event_id": 1,
+          "user_id": "6"
+        },
+        {
+          "event_id": 2,
+          "user_id": "6"
+        },
+        {
+          "event_id": 3,
+          "user_id": "6"
+        },
+        {
+          "event_id": 4,
+          "user_id": "6"
+        }
+      ]
+    }
+  }
+}
