@@ -73,6 +73,7 @@ exports.deleteUser = (id) => {
     });
 };
 
+
 exports.selectUserTrips = (user_id) => {
   return db
     .query(
@@ -122,3 +123,4 @@ exports.deleteSingleTrip = (user_id, trip_id) => {
   return db
     .query("DELETE FROM trips WHERE trip_id = $1 AND creator_id = $2", [trip_id, user_id])
 }
+
