@@ -10,18 +10,16 @@ exports.selectEventsUsersByUserId = (user_id) => {
     .then(({ rows }) => {
       if (!rows.length)
         return Promise.reject({ status: 404, msg: "User not found" });
-      return rows[0];
+      return rows;
     });
 };
 
-exports.insertEventsUsers = (eventsUsers) => {
-  if (!eventsUsers.event_id || !eventsUsers.user_id) {
-    return Promise.reject({ status: 400, msg: "Bad request" });
-  }
+exports.insertEventsUsers = (event_id, user_id) => {
+  if(!event_id) return Promise.reject({ status: 400, msg: "Bad request" });
   return db
     .query(
-      `INSERT INTO events_users (event_id, user_id) VALUES ($1, $2) RETURNING *`,
-      [eventsUsers.event_id, eventsUsers.user_id]
+      "INSERT INTO events_users (event_id, user_id) VALUES ($1, $2) RETURNING *",
+      [event_id, user_id]
     )
     .then(({ rows }) => {
       if (!rows.length)

@@ -7,10 +7,10 @@ const app = require("../MVC/views/app");
 beforeEach(() => seed(testData));
 afterAll(() => db.end());
 
-describe("GET /api/events_users", () => {
+describe("GET /api/events-users", () => {
   test("200: responds with an array of events_users objects", () => {
     return request(app)
-      .get("/api/events_users")
+      .get("/api/events-users")
       .expect(200)
       .then(({ body: { eventsUsers } }) => {
         expect(eventsUsers).toHaveLength(3);
@@ -36,25 +36,28 @@ describe("GET /api/events_users", () => {
   });
 });
 
-describe("GET /api/events_users/:user_id", () => {
-  test("200: responds with a events_users object", () => {
+describe("GET /api/users/:user_id/my-events", () => {
+  test("200: responds with an array of events_users objects", () => {
     return request(app)
-      .get("/api/events_users/6")
+      .get("/api/users/6/my-events")
       .expect(200)
       .then(({ body: { eventsUsers } }) => {
-        expect(eventsUsers).toEqual(
-          expect.objectContaining({
-            event_id: expect.any(Number),
-            user_id: expect.any(String),
-          })
-        );
+        expect(eventsUsers).toHaveLength(3);
+        eventsUsers.forEach((eventsUser) => {
+          expect(eventsUser).toEqual(
+            expect.objectContaining({
+              event_id: expect.any(Number),
+              user_id: expect.any(String),
+            })
+          );
+        });
       });
   });
 
   //Error handling
   test("404: responds with a message when passed a non-existent id", () => {
     return request(app)
-      .get("/api/events_users/100")
+      .get("/api/users/100/my-events")
       .expect(404)
       .then(({ body: { msg } }) => {
         expect(msg).toBe("User not found");
@@ -62,16 +65,11 @@ describe("GET /api/events_users/:user_id", () => {
   });
 });
 
-describe("POST /api/events_users", () => {
-  test("201: responds with a events_users object", () => {
+describe("POST /api/users/:user_id/my-events/:event_id", () => {
+  test("201: responds with the posted events_users object", () => {
     return request(app)
-      .post("/api/events_users")
-      .send({
-        eventsUsers: {
-          event_id: 1,
-          user_id: "6",
-        },
-      })
+      .post("/api/users/5/my-events/1")
+      .send({})
       .expect(201)
       .then(({ body: { eventsUsers } }) => {
         expect(eventsUsers).toEqual(
@@ -84,33 +82,48 @@ describe("POST /api/events_users", () => {
   });
 
   //Error handling
-  test("400: responds with a message when passed an invalid body", () => {
+  test("400: responds with a message when passed an invalid event_id", () => {
     return request(app)
-      .post("/api/events_users")
-      .send({
-        eventsUsers: {
-          event_id: 1,
-        },
-      })
-      .expect(400)
+      .post("/api/users/5/my-events/100")
+      .send({})
+      .expect(404)
       .then(({ body: { msg } }) => {
-        expect(msg).toBe("Bad request");
+        expect(msg).toBe("Event not found");
+      });
+  });
+
+  test("400: responds with a message when passed an invalid user_id", () => {
+    return request(app)
+      .post("/api/users/100/my-events/1")
+      .send({})
+      .expect(404)
+      .then(({ body: { msg } }) => {
+        expect(msg).toBe("User not found");
       });
   });
 });
 
-describe("DELETE /api/events_users/:event_id/:user_id", () => {
+describe("DELETE /api/users/:user_id/my-events/:event_id", () => {
   test("204: responds with no content", () => {
-    return request(app)
-      .delete("/api/events_users/1/6")
-      .expect(204);
+    return request(app).delete("/api/users/6/my-events/1").expect(204);
   });
 
   //Error handling
-  test("404: responds with a message when passed a non-existent id", () => {
+  test("404: responds with a message when passed a non-existent user_id", () => {
     return request(app)
-      .delete("/api/events_users/100/6")
+      .delete("/api/users/100/my-events/1")
       .expect(404)
-      .then(({ body: { msg } }) => expect(msg).toBe("Event not found"));
+      .then(({ body: { msg } }) => {
+        expect(msg).toBe("User not found");
+      });
+  });
+
+  test("404: responds with a message when passed a non-existent event_id", () => {
+    return request(app)
+      .delete("/api/users/6/my-events/100")
+      .expect(404)
+      .then(({ body: { msg } }) => {
+        expect(msg).toBe("Event not found");
+      });
   });
 });
