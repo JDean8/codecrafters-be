@@ -5,7 +5,7 @@ const interestsRouter = require("./interests-router");
 const eventRouter = require("./event-router");
 
 apiRouter.use("/users", userRouter);
-apiRouter.use("/events_users", eventsUsersRouter);
+apiRouter.use("/events-users", eventsUsersRouter);
 apiRouter.use("/events", eventRouter);
 apiRouter.use("/interests", interestsRouter);
 

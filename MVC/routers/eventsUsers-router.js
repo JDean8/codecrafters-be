@@ -1,13 +1,8 @@
 const eventsUsersRouter = require("express").Router();
 const {
-  getAllEventsUsers,
-  getEventsUsersByUserId,
-  postEventsUsers,
-  deleteEventsUsers,
+  getAllEventsUsers
 } = require("../controllers/eventsUsersController");
 
-eventsUsersRouter.route("/").get(getAllEventsUsers).post(postEventsUsers);
-eventsUsersRouter.route("/:user_id").get(getEventsUsersByUserId);
-eventsUsersRouter.route("/:event_id/:user_id").delete(deleteEventsUsers);
+eventsUsersRouter.route("/").get(getAllEventsUsers);
 
 module.exports = eventsUsersRouter;
