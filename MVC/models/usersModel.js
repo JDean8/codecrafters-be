@@ -1,4 +1,5 @@
 const db = require("../../db/connection");
+const { convertTimestampToDateTrips } = require("../../db/seeds/utils")
 
 exports.selectAllUsers = () => {
   return db.query("SELECT * FROM users").then((result) => result.rows);
@@ -22,19 +23,21 @@ exports.insertUser = (user) => {
     !user.profile_pic ||
     !user.name ||
     !user.user_id ||
-    !user.created_at
+    !user.created_at ||
+    !user.email
   ) {
     return Promise.reject({ status: 400, msg: "Bad request" });
   }
   return db
     .query(
-      "INSERT INTO users ( username, profile_pic, name, user_id, created_at) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+      "INSERT INTO users ( username, profile_pic, name, user_id, created_at, email) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
       [
         user.username,
         user.profile_pic,
         user.name,
         user.user_id,
         user.created_at,
+        user.email
       ]
     )
     .then(({ rows }) => {
@@ -69,4 +72,55 @@ exports.deleteUser = (id) => {
       return rows[0];
     });
 };
+
+
+exports.selectUserTrips = (user_id) => {
+  return db
+    .query(
+      "SELECT * FROM trips WHERE creator_id = $1 ORDER BY start_date DESC",
+      [user_id]
+    )
+    .then(({ rows }) => {
+      if (!rows.length)
+        return Promise.reject({ status: 404, msg: "User not found" });
+      return rows;
+    });
+}
+
+exports.insertUserTrip = (user_id, trip) => {
+  if (
+    !trip.creator_id ||
+    !trip.start_date ||
+    !trip.end_date ||
+    !trip.country ||
+    !trip.location ||
+    !trip.latitude ||
+    !trip.longitude
+  ) {
+    return Promise.reject({ status: 400, msg: "Bad request" });
+  }
+  return db
+    .query(
+      "INSERT INTO trips (creator_id, start_date, end_date, country, location, latitude, longitude) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+      [
+        trip.creator_id,
+        trip.start_date,
+        trip.end_date,
+        trip.country,
+        trip.location,
+        trip.latitude,
+        trip.longitude,
+      ]
+    )
+    .then(({ rows }) => {
+      if (!rows.length)
+        return Promise.reject({ status: 404, msg: "User not found" });
+      return rows[0];
+    });
+}
+
+exports.deleteSingleTrip = (user_id, trip_id) => {
+  return db
+    .query("DELETE FROM trips WHERE trip_id = $1 AND creator_id = $2", [trip_id, user_id])
+}
 

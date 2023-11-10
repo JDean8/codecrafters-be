@@ -10,15 +10,15 @@ const seed = ({
   interestsData,
   tripsData,
   usersData,
-  cardsData,
   friendsData,
   friendRequestsData,
   events_usersData,
   eventsData,
   interests_usersData,
+  commentsData,
 }) => {
   return db
-    .query(`DROP TABLE IF EXISTS cards;`)
+    .query(`DROP TABLE IF EXISTS comments;`)
     .then(() => {
       return db.query(`DROP TABLE IF EXISTS friends;`);
     })
@@ -26,7 +26,6 @@ const seed = ({
       return db.query(`DROP TABLE IF EXISTS friendsRequests;`);
     })
     .then(() => {
-      
       return db.query(`DROP TABLE IF EXISTS events_users;`);
     })
 
@@ -43,17 +42,19 @@ const seed = ({
       return db.query(`DROP TABLE IF EXISTS interests;`);
     })
     .then(() => {
-      return db.query(`DROP TABLE IF EXISTS users;`);
+      return db.query(`DROP TABLE IF EXISTS users CASCADE;`);
     })
     .then(() => {
       return db.query(`
         CREATE TABLE trips (
-            trip_id integer PRIMARY KEY,
-            creator_id integer,
-            country VARCHAR,
-            location VARCHAR,
-            start_date TIMESTAMP,
-            end_date TIMESTAMP
+            trip_id SERIAL PRIMARY KEY,
+            creator_id VARCHAR NOT NULL,
+            country VARCHAR NOT NULL,
+            location VARCHAR NOT NULL,
+            start_date TIMESTAMP NOT NULL,
+            end_date TIMESTAMP NOT NULL,
+            latitude FLOAT,
+            longitude FLOAT
         );`);
     })
     .then(() => {
@@ -63,7 +64,8 @@ const seed = ({
         username VARCHAR,
         name VARCHAR,
         profile_pic VARCHAR,
-        created_at TIMESTAMP
+        created_at TIMESTAMP,
+        email VARCHAR
       );`);
 
       const interestsTablePromise = db.query(`
@@ -75,11 +77,14 @@ const seed = ({
       const eventsTablePromise = db.query(`
       CREATE TABLE events (
           event_id integer PRIMARY KEY,
-          creator_id integer,
+          creator_id VARCHAR,
           date TIMESTAMP,
           short_description VARCHAR,
           description VARCHAR,
-          location VARCHAR
+          location VARCHAR,
+          latitude FLOAT,
+          longitude FLOAT,
+          event_picture VARCHAR
       );`);
       return Promise.all([
         usersTablePromise,
@@ -88,7 +93,6 @@ const seed = ({
       ]);
     })
     .then(() => {
-      
       return db.query(`
       CREATE TABLE friends (
         friend_a VARCHAR references users(user_id) ON DELETE CASCADE,
@@ -112,26 +116,25 @@ const seed = ({
     .then(() => {
       return db.query(`
       CREATE TABLE events_users (
-          event_id integer references events(event_id),
+          event_id integer references events(event_id) ON DELETE CASCADE,
           user_id VARCHAR references users(user_id) ON DELETE CASCADE
       );`);
     })
     .then(() => {
       return db.query(`
-      CREATE TABLE cards (
-        card_id SERIAL PRIMARY KEY,
-        country VARCHAR NOT NULL,
-        start_date TIMESTAMP NOT NULL,
-        end_date TIMESTAMP NOT NULL,
-        creator VARCHAR NOT NULL references users(user_id) ON DELETE CASCADE,
-        location VARCHAR NOT NULL
+      CREATE TABLE comments (
+        comment_id SERIAL PRIMARY KEY,
+        body VARCHAR,
+        user_id VARCHAR references users(user_id) ON DELETE CASCADE,
+        event_id INT references events(event_id) ON DELETE CASCADE,
+        created_at TIMESTAMP
       );`);
     })
     .then(() => {
       const formattedUsers = usersData.map(convertTimestampToDateUsers);
       const insertUserRows = format(
         `INSERT INTO users
-          (user_id, username, name, profile_pic, created_at)
+          (user_id, username, name, profile_pic, created_at, email)
           VALUES %L RETURNING *;`,
         formattedUsers.map((user) => {
           return [
@@ -140,6 +143,7 @@ const seed = ({
             user.name,
             user.profile_pic,
             user.created_at,
+            user.email
           ];
         })
       );
@@ -158,8 +162,8 @@ const seed = ({
       const formattedEvents = eventsData.map(convertTimestampToDateEvents);
       const insertEventsRows = format(
         `INSERT INTO events
-                  (event_id, creator_id, date, short_description, description, location)
-                  VALUES %L RETURNING *;`,
+            (event_id, creator_id, date, short_description, description, location, latitude, longitude, event_picture)
+            VALUES %L RETURNING *;`,
         formattedEvents.map((event) => {
           return [
             event.event_id,
@@ -168,6 +172,9 @@ const seed = ({
             event.short_description,
             event.description,
             event.location,
+            event.latitude,
+            event.longitude,
+            event.event_picture,
           ];
         })
       );
@@ -183,38 +190,21 @@ const seed = ({
       const formattedTrips = tripsData.map(convertTimestampToDateTrips);
       const insertTripRows = format(
         `INSERT INTO trips
-          (trip_id, creator_id, country, location, start_date, end_date)
+          (creator_id, country, location, start_date, end_date, latitude, longitude)
           VALUES %L RETURNING *;`,
         formattedTrips.map((trip) => {
           return [
-            trip.trip_id,
             trip.creator_id,
             trip.country,
             trip.location,
             trip.start_date,
             trip.end_date,
+            trip.latitude,
+            trip.longitude,
           ];
         })
       );
       return db.query(insertTripRows);
-    })
-    .then(() => {
-      const formattedCards = cardsData.map(convertTimestampToDateTrips);
-      const insertCardRows = format(
-        `INSERT INTO cards
-              (country, start_date, end_date, creator, location)
-              VALUES %L RETURNING *;`,
-        formattedCards.map((card) => {
-          return [
-            card.country,
-            card.start_date,
-            card.end_date,
-            card.creator,
-            card.location,
-          ];
-        })
-      );
-      return db.query(insertCardRows);
     })
     .then(() => {
       const insertFriendsRows = format(
@@ -259,6 +249,24 @@ const seed = ({
         })
       );
       return db.query(insertInterestsUsersRows);
+    })
+    .then(() => {
+      const commentFormatted = commentsData.map(convertTimestampToDateUsers);
+      const insertCommentsRows = format(
+        `INSERT INTO comments
+                (comment_id, body, user_id, event_id, created_at)
+                VALUES %L RETURNING *;`,
+        commentFormatted.map((comment) => {
+          return [
+            comment.comment_id,
+            comment.body,
+            comment.user_id,
+            comment.event_id,
+            comment.created_at,
+          ];
+        })
+      );
+      return db.query(insertCommentsRows);
     });
 };
 
