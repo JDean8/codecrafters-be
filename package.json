@@ -18,7 +18,7 @@
   "version": "1.0.0",
   "main": "listen.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --runInBand",
     "seed": "node ./db/seeds/run-seed",
     "setup-dbs": "psql -f ./db/setup.sql",
     "playground": "psql -f playground.sql > playground.txt",
