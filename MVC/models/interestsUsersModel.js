@@ -5,15 +5,12 @@ const { selectUserById } = require("./usersModel");
 exports.selectInterestsByUserId = (userId) => {
     return selectUserById(userId)
         .then(() => {
-            return db.query(`SELECT interests.interest FROM interests
+            return db.query(`SELECT interests.interest, interests.interest_id FROM interests
         LEFT JOIN interests_users ON interests.interest_id = interests_users.interest_id
         WHERE interests_users.user_id = $1;`, [userId])
         })
         .then(({ rows }) => {
-            const mappedInterests = rows.map((row) => {
-                return row.interest
-            })
-            return mappedInterests;
+            return rows;
         })
 }
 

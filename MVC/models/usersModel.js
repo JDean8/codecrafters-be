@@ -23,19 +23,21 @@ exports.insertUser = (user) => {
     !user.profile_pic ||
     !user.name ||
     !user.user_id ||
-    !user.created_at
+    !user.created_at ||
+    !user.email
   ) {
     return Promise.reject({ status: 400, msg: "Bad request" });
   }
   return db
     .query(
-      "INSERT INTO users ( username, profile_pic, name, user_id, created_at) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+      "INSERT INTO users ( username, profile_pic, name, user_id, created_at, email) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
       [
         user.username,
         user.profile_pic,
         user.name,
         user.user_id,
         user.created_at,
+        user.email
       ]
     )
     .then(({ rows }) => {
