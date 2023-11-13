@@ -69,7 +69,8 @@ describe("POST /api/users/:user_id/trips", () => {
                         country: "Poland",
                         location: "Warsaw",
                         latitude: 52.2297,
-                        longitude: 21.0122
+                        longitude: 21.0122,
+                        trip_id: 8
                     })
                 );
             });
