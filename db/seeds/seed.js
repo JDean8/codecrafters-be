@@ -16,6 +16,7 @@ const seed = ({
   eventsData,
   interests_usersData,
   commentsData,
+  eventsSavedData
 }) => {
   return db
     .query(`DROP TABLE IF EXISTS comments;`)
@@ -28,7 +29,9 @@ const seed = ({
     .then(() => {
       return db.query(`DROP TABLE IF EXISTS events_users;`);
     })
-
+    .then(() => {
+      return db.query(`DROP TABLE IF EXISTS events_saved;`);
+    })
     .then(() => {
       return db.query(`DROP TABLE IF EXISTS trips;`);
     })
@@ -116,6 +119,13 @@ const seed = ({
     .then(() => {
       return db.query(`
       CREATE TABLE events_users (
+          event_id integer references events(event_id) ON DELETE CASCADE,
+          user_id VARCHAR references users(user_id) ON DELETE CASCADE
+      );`);
+    })
+    .then(() => {
+      return db.query(`
+      CREATE TABLE events_saved (
           event_id integer references events(event_id) ON DELETE CASCADE,
           user_id VARCHAR references users(user_id) ON DELETE CASCADE
       );`);
@@ -238,6 +248,17 @@ const seed = ({
         })
       );
       return db.query(insertEventsUsersRows);
+    })
+    .then(() => {
+      const insertEventsSavedRows = format(
+        `INSERT INTO events_saved
+                (event_id, user_id)
+                VALUES %L RETURNING *;`,
+        eventsSavedData.map((event) => {
+          return [event.event_id, event.user_id];
+        })
+      );
+      return db.query(insertEventsSavedRows);
     })
     .then(() => {
       const insertInterestsUsersRows = format(
