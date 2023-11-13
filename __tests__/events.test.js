@@ -13,7 +13,7 @@ describe("GET /api/events", () => {
       .get("/api/events")
       .expect(200)
       .then(({ body: { events } }) => {
-        expect(events).toHaveLength(5);
+        expect(events).toHaveLength(9);
         events.forEach((event) => {
           expect(event).toEqual(
             expect.objectContaining({
@@ -37,7 +37,7 @@ describe("GET /api/events", () => {
       .get("/api/events?sort_by=location&order=asc")
       .expect(200)
       .then(({ body: { events } }) => {
-        expect(events).toHaveLength(5);
+        expect(events).toHaveLength(9);
         expect(events).toBeSortedBy("location", {
           ascending: true,
           coerce: true,
@@ -50,7 +50,7 @@ describe("GET /api/events", () => {
       .get("/api/events?sort_by=location&order=desc")
       .expect(200)
       .then(({ body: { events } }) => {
-        expect(events).toHaveLength(5);
+        expect(events).toHaveLength(9);
         expect(events).toBeSortedBy("location", {
           descending: true,
           coerce: true,
@@ -63,7 +63,7 @@ describe("GET /api/events", () => {
       .get("/api/events")
       .expect(200)
       .then(({ body: { events } }) => {
-        expect(events).toHaveLength(5);
+        expect(events).toHaveLength(9);
         expect(events).toBeSortedBy("location", {
           ascending: true,
           coerce: true,
@@ -76,7 +76,7 @@ describe("GET /api/events", () => {
       .get("/api/events?order=invalid")
       .expect(200)
       .then(({ body: { events } }) => {
-        expect(events).toHaveLength(5);
+        expect(events).toHaveLength(9);
         expect(events).toBeSortedBy("location", {
           ascending: true,
           coerce: true,
@@ -151,7 +151,7 @@ describe("POST /api/events", () => {
       .post("/api/events")
       .send({
         event: {
-          event_id: 6,
+          event_id: 11,
           creator_id: '1',
           date: "2021-12-12",
           short_description: "Test event",

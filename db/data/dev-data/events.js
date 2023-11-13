@@ -158,7 +158,7 @@ module.exports = [
   {
     event_id: 13,
     creator_id: "13",
-    date: 1673003302000,
+    date: 1672847481000,
     short_description: "Trip to the beach",
     description:
       "Calling all fellow beach lovers - lets meet and have an amazing time at the beach in Naples",
@@ -171,7 +171,7 @@ module.exports = [
   {
     event_id: 14,
     creator_id: "14",
-    date: 1672830502000,
+    date: 1673020281000,
     short_description: "Trip to the Museum",
     description:
       "Calling all fellow museum lovers - lets meet and have an amazing time at the museum in Rome", 
@@ -184,7 +184,7 @@ module.exports = [
   {
     event_id: 15,
     creator_id: "15",
-    date: 1672830502000,
+    date: 1701877881000,
     short_description: "Trip to the Park",
     description:
       "Calling all fellow park lovers - lets meet and have an amazing time at the park in Madrid",
@@ -210,7 +210,7 @@ module.exports = [
   {
     event_id: 17,
     creator_id: "17",
-    date: 1672830502000,
+    date: 1672933881000,
     short_description: "Trip to the COLOSSEUM",
     description:
       "Calling all fellow colosseum lovers - lets meet and have an amazing time at the colosseum in Rome",
@@ -223,7 +223,7 @@ module.exports = [
   {
     event_id: 18,
     creator_id: "18",
-    date: 1672830502000,
+    date: 1672847481000,
     short_description: "Trip to the canal",
     description:
       "Calling all fellow canal lovers - lets meet and have an amazing time at the canal in Venice",
@@ -236,7 +236,7 @@ module.exports = [
   {
     event_id: 19,
     creator_id: "19",
-    date: 1672830502000,
+    date: 1673020281000,
     short_description: "Trip to the tower of Pisa",
     description:
       "Calling all fellow tower lovers - lets meet and have an amazing time at the tower in Pisa",
@@ -249,7 +249,7 @@ module.exports = [
   {
     event_id: 20,
     creator_id: "20",
-    date: 1672830502000,
+    date: 1673106681000,
     short_description: "Trip to the lake Como",
     description:
       "Calling all fellow lake lovers - lets meet and have an amazing time at the lake in Como",
