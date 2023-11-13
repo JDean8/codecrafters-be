@@ -20,6 +20,7 @@ exports.selectEventsUsersByUserId = (user_id, sort_by, order, limit, page) => {
     .then(({ rows }) => {
       if (!rows.length)
         return Promise.reject({ status: 404, msg: "User has not any events lined up" });
+      return rows;
     });
 };
 
