@@ -9,8 +9,7 @@ exports.selectEventsUsersByUserId = (user_id) => {
     .query("SELECT * FROM events_users WHERE user_id = $1", [user_id])
     .then(({ rows }) => {
       if (!rows.length)
-        return Promise.reject({ status: 404, msg: "User not found" });
-      return rows;
+        return Promise.reject({ status: 404, msg: "User has not any events lined up" });
     });
 };
 

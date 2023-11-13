@@ -33,7 +33,7 @@ const seed = ({
       return db.query(`DROP TABLE IF EXISTS trips;`);
     })
     .then(() => {
-      return db.query(`DROP TABLE IF EXISTS events;`);
+      return db.query(`DROP TABLE IF EXISTS events CASCADE;`);
     })
     .then(() => {
       return db.query(`DROP TABLE IF EXISTS interests_users;`);
