@@ -56,8 +56,8 @@ const seed = ({
             location VARCHAR NOT NULL,
             start_date TIMESTAMP NOT NULL,
             end_date TIMESTAMP NOT NULL,
-            latitude FLOAT,
-            longitude FLOAT
+            latitude DECIMAL,
+            longitude DECIMAL
         );`);
     })
     .then(() => {

@@ -113,9 +113,16 @@ exports.insertUserTrip = (user_id, trip) => {
       ]
     )
     .then(({ rows }) => {
+      const mappedRows = rows.map((row) => {
+        if (row.latitude || row.longitude) {
+          row.latitude = parseFloat(row.latitude)
+          row.longitude = parseFloat(row.longitude)
+        }
+        return row
+      })
       if (!rows.length)
         return Promise.reject({ status: 404, msg: "User not found" });
-      return rows[0];
+      return mappedRows[0];
     });
 }
 
