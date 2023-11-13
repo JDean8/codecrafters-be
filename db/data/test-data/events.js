@@ -64,5 +64,58 @@ module.exports = [
     longitude: 53.551,
     event_picture:
       "https://www.google.com/imgres?imgurl=https%3A%2F%2Fimg.pikbest.com%2F09%2F14%2F13%2F06kpIkbEsTYSv.jpg!w700wp&tbnid=2XUreLHQGPNaLM&vet=12ahUKEwi2-banm7eCAxVrRKQEHSaQCmUQMygVegUIARCeAQ..i&imgrefurl=https%3A%2F%2Fpikbest.com%2Fbackgrounds%2Fdeep-sea-blue-aquarium-filled-landscape-background-8k_9141306.html&docid=l_u83y8FufS81M&w=700&h=392&q=aquarium%20png&ved=2ahUKEwi2-banm7eCAxVrRKQEHSaQCmUQMygVegUIARCeAQ",
+  },
+
+  {
+    event_id: 6,
+    creator_id: "4",
+    date: 1701947302000,
+    short_description: "Trip to the beach",
+    description:
+      "Calling all fellow beach lovers - lets meet and have an amazing time at the beach in Mallorca",
+    location: "Mallorca, Spain",
+    latitude: 2.653,
+    longitude: 39.569,
+    event_picture:
+      "https://www.mallorca-beaches.com/images/mallorca-beaches.jpg",
+  },
+  {
+    event_id: 7,
+    creator_id: "3",
+    date: 1702206502000,
+    short_description: "Trip to the beach",
+    description:
+      "Calling all fellow beach lovers - lets meet and have an amazing time at the beach in Malaga",
+    location: "Malaga, Spain",
+    latitude: 2.653,
+    longitude: 39.569,
+    event_picture:
+      "https://www.mallorca-beaches.com/images/mallorca-beaches.jpg",
+  },
+  {
+    event_id: 8,
+    creator_id: "2",
+    date: 1673003302000,
+    short_description: "Trip to the beach",
+    description:
+      "Calling all fellow beach lovers - lets meet and have an amazing time at the beach in Naples",
+    location: "Naples, Italy",
+    latitude: 2.653,
+    longitude: 39.569,
+    event_picture:
+      "https://www.mallorca-beaches.com/images/mallorca-beaches.jpg",
+  },
+  {
+    event_id: 9,
+    creator_id: "1",
+    date: 1672830502000,
+    short_description: "Trip to the Museum",
+    description:
+      "Calling all fellow museum lovers - lets meet and have an amazing time at the museum in Rome", 
+    location: "Rome, Italy",
+    latitude: 2.653,
+    longitude: 39.569,
+    event_picture:
+      "https://www.mallorca-beaches.com/images/mallorca-beaches.jpg",
   }
 ];
