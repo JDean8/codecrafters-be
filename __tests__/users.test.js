@@ -13,7 +13,7 @@ describe("GET /api/users", () => {
       .get("/api/users")
       .expect(200)
       .then(({ body: { users } }) => {
-        expect(users).toHaveLength(6);
+        expect(users).toHaveLength(7);
         users.forEach((user) => {
           expect(user).toEqual(
             expect.objectContaining({
@@ -73,7 +73,7 @@ describe("POST /api/users", () => {
       .post("/api/users")
       .send({
         user: {
-          user_id: '7',
+          user_id: '8',
           username: "testuser",
           profile_pic: "https://testuser.com",
           name: "test user",

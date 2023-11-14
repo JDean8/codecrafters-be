@@ -113,7 +113,6 @@ describe("POST /api/events/:event_idParam/comments", () => {
         user_id: "2",
         event_id: 2,
         created_at: "2022-12-01 00:00:00",
-        comment_id: 7,
       })
       .expect(201)
       .then(({ body: { comment } }) => {
@@ -136,7 +135,6 @@ describe("POST /api/events/:event_idParam/comments", () => {
       .send({
         body: "Test comment",
         user_id: "2",
-        event_id: 2,
         created_at: "2022-12-01 00:00:00",
       })
       .expect(400)
@@ -150,10 +148,9 @@ describe("POST /api/events/:event_idParam/comments", () => {
       .post("/api/events/2/comments")
       .send({
         body: "Test comment",
-        user_id: "2",
-        event_id: 2,
+        user_id: '2',
+        event_id: 'two',
         created_at: "2022-12-01 00:00:00",
-        comment_id: "seven",
       })
       .expect(400)
       .then(({ body: { msg } }) => {

@@ -32,19 +32,17 @@ exports.insertComment = (comment, event_idParam) => {
     !comment.user_id ||
     !comment.event_id ||
     !comment.created_at ||
-    !comment.comment_id ||
     !event_idParam
   )
     return Promise.reject({ status: 400, msg: "Bad request" });
   return db
     .query(
-      "INSERT INTO comments (body, user_id, event_id, created_at, comment_id) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+      "INSERT INTO comments (body, user_id, event_id, created_at ) VALUES ($1, $2, $3, $4 ) RETURNING *",
       [
         comment.body,
         comment.user_id,
         comment.event_id,
         comment.created_at,
-        comment.comment_id,
       ]
     )
     .then(({ rows }) => {
