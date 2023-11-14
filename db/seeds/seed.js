@@ -274,11 +274,10 @@ const seed = ({
       const commentFormatted = commentsData.map(convertTimestampToDateUsers);
       const insertCommentsRows = format(
         `INSERT INTO comments
-                (comment_id, body, user_id, event_id, created_at)
+                ( body, user_id, event_id, created_at)
                 VALUES %L RETURNING *;`,
         commentFormatted.map((comment) => {
           return [
-            comment.comment_id,
             comment.body,
             comment.user_id,
             comment.event_id,
