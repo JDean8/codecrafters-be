@@ -79,7 +79,7 @@ const seed = ({
 
       const eventsTablePromise = db.query(`
       CREATE TABLE events (
-          event_id integer PRIMARY KEY,
+          event_id SERIAL PRIMARY KEY,
           creator_id VARCHAR,
           date TIMESTAMP,
           short_description VARCHAR,
@@ -172,11 +172,10 @@ const seed = ({
       const formattedEvents = eventsData.map(convertTimestampToDateEvents);
       const insertEventsRows = format(
         `INSERT INTO events
-            (event_id, creator_id, date, short_description, description, location, latitude, longitude, event_picture)
+            (creator_id, date, short_description, description, location, latitude, longitude, event_picture)
             VALUES %L RETURNING *;`,
         formattedEvents.map((event) => {
           return [
-            event.event_id,
             event.creator_id,
             event.date,
             event.short_description,

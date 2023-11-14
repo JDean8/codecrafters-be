@@ -132,7 +132,7 @@
     "queries": [],
     "exampleResponse": ""
   },
-  "GET /api/users/:user_id/my-events": {
+  "GET /api/users/:user_id/attending-events": {
     "description": "serves an array of all events for the specified user_id",
     "queries": [],
     "exampleResponse": {
@@ -184,12 +184,12 @@
       ]
     }
   },
-  "DELETE /api/users/:user_id/my-events/:event_id": {
+  "DELETE /api/users/:user_id/attending-events/:event_id": {
     "description": "serves a status 204 and no content",
     "queries": [],
     "exampleResponse": ""
   },
-  "POST /api/users/:user_id/my-events/:event_id": {
+  "POST /api/users/:user_id/attending-events/:event_id": {
     "description": "serves a new event object events-users for the specified user_id and event_id",
     "queries": [],
     "exampleResponse": {
@@ -287,7 +287,74 @@
     "description": "serves a status 204 and no content",
     "queries": [],
     "exampleResponse": ""
-  },  
+  },
+
+  "GET /api/users/:user_id/my-events": {
+    "description": "serves an array of all events created by the specified user_id",
+    "queries": [],
+    "exampleResponse": {
+      "events": [
+        {
+          "event_id": 10,
+          "creator_id": "10",
+          "date": "2015-07-01T10:40:00.000Z",
+          "short_description": "Trip to the canal",
+          "description": "Calling all fellow canal lovers - lets meet and have an amazing time at the canal in Amsterdam",
+          "location": "Amsterdam, Netherlands",
+          "latitude": 4.899,
+          "longitude": 52.371,
+          "event_picture": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/74/c9/cf/caption.jpg?w=700&h=-1&s=1"
+        },
+        {
+          "event_id": 2,
+          "creator_id": "2",
+          "date": "2023-10-16T08:13:20.000Z",
+          "short_description": "Trip to the beach",
+          "description": "Calling all fellow beach lovers - lets meet and have an amazing time at Barceloneta beach",
+          "location": "Barceloneta Beach, 08003 Barcelona, Spain",
+          "latitude": 2.189,
+          "longitude": 41.381,
+          "event_picture": "https://media.cnn.com/api/v1/images/stellar/prod/180528121348-04-barcelona-beach-guide.jpg?q=w_3800,h_2137,x_0,y_0,c_fill"
+        }
+      ]
+    }
+  },
+
+  "GET /api/users/:user_id/my-events/:event_id": {
+    "description": "serves an event object created by the specified user_id",
+    "queries": [],
+    "exampleResponse": {
+      "event": {
+        "event_id": 10,
+        "creator_id": "10",
+        "date": "2015-07-01T10:40:00.000Z",
+        "short_description": "Trip to the canal",
+        "description": "Calling all fellow canal lovers - lets meet and have an amazing time at the canal in Amsterdam",
+        "location": "Amsterdam, Netherlands",
+        "latitude": 4.899,
+        "longitude": 52.371,
+        "event_picture": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/74/c9/cf/caption.jpg?w=700&h=-1&s=1"
+      }
+    }
+  },
+  "DELETE /api/users/:user_id/my-events/:event_id": {
+    "description": "serves a status 204 and an object with the deleted event",
+    "queries": [],
+    "exampleResponse": {
+      "event": {
+        "event_id": 10,
+        "creator_id": "10",
+        "date": "2015-07-01T10:40:00.000Z",
+        "short_description": "Trip to the canal",
+        "description": "Calling all fellow canal lovers - lets meet and have an amazing time at the canal in Amsterdam",
+        "location": "Amsterdam, Netherlands",
+        "latitude": 4.899,
+        "longitude": 52.371,
+        "event_picture": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/74/c9/cf/caption.jpg?w=700&h=-1&s=1"
+      }
+    }
+  },
+
   "GET /api/interests": {
     "description": "serves an array of all interests",
     "queries": [],

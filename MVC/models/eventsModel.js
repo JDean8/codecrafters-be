@@ -22,7 +22,6 @@ exports.selectEventById = (id) => {
 
 exports.insertEvent = (event) => {
     if (
-        !event.event_id ||
         !event.creator_id ||
         !event.date ||
         !event.short_description ||
@@ -36,9 +35,8 @@ exports.insertEvent = (event) => {
     }
     return db
         .query(
-        "INSERT INTO events (event_id, creator_id, date, short_description, description, location, latitude, longitude, event_picture) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *",
+        "INSERT INTO events (creator_id, date, short_description, description, location, latitude, longitude, event_picture) VALUES ($1, $2, $3, $4, $5, $6, $7, $8 ) RETURNING *",
         [
-            event.event_id,
             event.creator_id,
             event.date,
             event.short_description,

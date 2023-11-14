@@ -151,7 +151,6 @@ describe("POST /api/events", () => {
       .post("/api/events")
       .send({
         event: {
-          event_id: 11,
           creator_id: '1',
           date: "2021-12-12",
           short_description: "Test event",
