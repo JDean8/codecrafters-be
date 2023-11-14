@@ -20,7 +20,7 @@ exports.selectAllEventsSavedByUser = (user_id, sort_by, order, limit, page) => {
     )
     .then(({ rows }) => {
       if (!rows.length)
-        return Promise.reject({ status: 404, msg: "Events not found" });
+        return [];
       return rows;
     });
 };
@@ -36,7 +36,7 @@ exports.selectEventSavedByByEventId = (event_id, user_id) => {
     )
     .then(({ rows }) => {
       if (!rows.length)
-        return Promise.reject({ status: 404, msg: "Event not found" });
+        return {};
       return rows[0];
     });
 };
@@ -52,7 +52,7 @@ exports.insertEventSaved = (event_id, user_id) => {
     )
     .then(({ rows }) => {
       if (!rows.length)
-        return Promise.reject({ status: 404, msg: "Event not found" });
+        return Promise.reject({ status: 404, msg: "Event not created" });
       return rows[0];
     });
 };
@@ -68,7 +68,7 @@ exports.deleteEventSavedModel = (event_id, user_id) => {
     )
     .then(({ rows }) => {
       if (!rows.length)
-        return Promise.reject({ status: 404, msg: "Event not found" });
+        return Promise.reject({ status: 404, msg: "Event not deleted" });
       return rows[0];
     });
 };

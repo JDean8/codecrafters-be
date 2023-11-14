@@ -19,7 +19,7 @@ exports.selectEventsUsersByUserId = (user_id, sort_by, order, limit, page) => {
     )
     .then(({ rows }) => {
       if (!rows.length)
-        return Promise.reject({ status: 404, msg: "User has not any events lined up" });
+        return [];
       return rows;
     });
 };
@@ -33,7 +33,7 @@ exports.insertEventsUsers = (event_id, user_id) => {
     )
     .then(({ rows }) => {
       if (!rows.length)
-        return Promise.reject({ status: 404, msg: "Event not found" });
+        return {};
       return rows[0];
     });
 };
