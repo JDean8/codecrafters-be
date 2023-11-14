@@ -23,6 +23,7 @@ const {
   postEventSaved,
   deleteEventSaved,
 } = require("../controllers/eventsSavedController");
+const { getEventsCreatedByUserId, getEventCreatedByEvent_Id, deleteEventCreatedByEvent_Id } = require("../controllers/eventsCreatedController");
 
 
 userRouter.route("/").get(getAllUsers).post(postUser);
@@ -35,9 +36,9 @@ userRouter.route("/:user_id/friends").get(getAllFriendsFromUserByUserId)
 userRouter.route("/:user_id/friends/:friend_id").delete(deleteFriend)
 userRouter.route("/:user_id/friendsrequests").get(getAllFriendRequests).post(postFriendRequest)
 userRouter.route("/:user_id/matchfriends").get(matchFriends)
-userRouter.route("/:userId/my-events").get(getEventsUsersByUserId);
+userRouter.route("/:userId/attending-events").get(getEventsUsersByUserId);
 userRouter
-  .route("/:userId/my-events/:eventId")
+  .route("/:userId/attending-events/:eventId")
   .delete(deleteEventsUsers)
   .post(postEventsUsers);
 userRouter.route("/:user_id/trips").get(getUserTrips).post(postUserTrip);
@@ -48,5 +49,7 @@ userRouter
   .get(getEventSavedByByEventId)
   .post(postEventSaved)
   .delete(deleteEventSaved);
+userRouter.route("/:user_id/my-events").get(getEventsCreatedByUserId);
+userRouter.route("/:user_id/my-events/:event_id").get(getEventCreatedByEvent_Id).delete(deleteEventCreatedByEvent_Id);
 
 module.exports = userRouter;
