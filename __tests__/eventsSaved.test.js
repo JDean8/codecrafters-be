@@ -25,6 +25,15 @@ describe("GET /api/:user_id/events-saved ", () => {
       });
   });
 
+  test("200: responds with an empty array when passed a user_id that has no events saved", () => {
+    return request(app)
+      .get("/api/users/7/events-saved")
+      .expect(200)
+      .then(({ body: { eventsSaved } }) => {
+        expect(eventsSaved).toHaveLength(0);
+      });
+  });
+
   test("200: responds with an array of events objects saved by the user sorted by location ascending by default", () => {
     return request(app)
       .get("/api/users/3/events-saved")
@@ -96,6 +105,15 @@ describe("GET /api/users/:user_id/events-saved/:event_id", () => {
             user_id: expect.any(String),
           })
         );
+      });
+  });
+
+  test ("200: responds with an empty object when passed a user_id that has no events saved", () => {
+    return request(app)
+      .get("/api/users/7/events-saved/4")
+      .expect(200)
+      .then(({ body: { eventSaved } }) => {
+        expect(eventSaved).toEqual({});
       });
   });
 

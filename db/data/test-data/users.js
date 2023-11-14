@@ -47,5 +47,13 @@ module.exports = [
         profile_pic: 'https://vignette.wikia.nocookie.net/mrmen/images/1/1a/MR_MESSY_4A.jpg/revision/latest/scale-to-width-down/250?cb=20170730171002',
         created_at: 1625097600000,
         email: 'fakeemail6@gmrail.com'
+    },
+    {
+        user_id: '7',
+        username: 'grumpy19',
+        name: 'Paul',
+        profile_pic: 'https://vignette.wikia.nocookie.net/mrmen/images/7/78/Mr-Grumpy-3A.PNG/revision/latest?cb=20170707233013',
+        created_at: 1622419200000,
+        email: 'fakeemail6@gmrail.com'
     }
 ];
