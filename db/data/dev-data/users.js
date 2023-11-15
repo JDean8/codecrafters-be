@@ -4,7 +4,7 @@ module.exports = [
     username: "butter_bridge",
     name: "Jonny",
     profile_pic:
-      "https://www.healthytherapies.com/wp-content/uploads/2016/06/Lime3.jpg",
+      "https://t4.ftcdn.net/jpg/00/97/58/97/360_F_97589769_t45CqXyzjz0KXwoBZT9PRaWGHRk5hQqQ.jpg",
     created_at: 1669852800000,
     email: "fakeemail1@gmrail.com",
   },
