@@ -1,5 +1,4 @@
 const db = require("../../db/connection");
-const { convertTimestampToDateTrips } = require("../../db/seeds/utils")
 
 exports.selectAllUsers = () => {
   return db.query("SELECT * FROM users").then((result) => result.rows);
@@ -15,7 +14,6 @@ exports.selectUserById = (id) => {
       return rows[0];
     });
 };
-
 
 exports.insertUser = (user) => {
   if (
@@ -37,7 +35,7 @@ exports.insertUser = (user) => {
         user.name,
         user.user_id,
         user.created_at,
-        user.email
+        user.email,
       ]
     )
     .then(({ rows }) => {
@@ -73,7 +71,6 @@ exports.deleteUser = (id) => {
     });
 };
 
-
 exports.selectUserTrips = (user_id) => {
   return db
     .query(
@@ -85,9 +82,9 @@ exports.selectUserTrips = (user_id) => {
         return Promise.reject({ status: 404, msg: "User not found" });
       return rows;
     });
-}
+};
 
-exports.insertUserTrip = (user_id, trip) => {
+exports.insertUserTrip = (trip) => {
   if (
     !trip.creator_id ||
     !trip.start_date ||
@@ -115,19 +112,20 @@ exports.insertUserTrip = (user_id, trip) => {
     .then(({ rows }) => {
       const mappedRows = rows.map((row) => {
         if (row.latitude || row.longitude) {
-          row.latitude = parseFloat(row.latitude)
-          row.longitude = parseFloat(row.longitude)
+          row.latitude = parseFloat(row.latitude);
+          row.longitude = parseFloat(row.longitude);
         }
-        return row
-      })
+        return row;
+      });
       if (!rows.length)
         return Promise.reject({ status: 404, msg: "User not found" });
       return mappedRows[0];
     });
-}
+};
 
 exports.deleteSingleTrip = (user_id, trip_id) => {
-  return db
-    .query("DELETE FROM trips WHERE trip_id = $1 AND creator_id = $2", [trip_id, user_id])
-}
-
+  return db.query("DELETE FROM trips WHERE trip_id = $1 AND creator_id = $2", [
+    trip_id,
+    user_id,
+  ]);
+};

@@ -101,7 +101,6 @@ describe("GET /api/events", () => {
       });
   });
 
-  //Error handling
   test("404: responds with a message when passed a non-existent route", () => {
     return request(app)
       .get("/api/event")
@@ -134,7 +133,6 @@ describe("GET /api/events/:id", () => {
       });
   });
 
-  //Error handling
   test("404: responds with a message when passed a non-existent id", () => {
     return request(app)
       .get("/api/events/100")
@@ -151,15 +149,14 @@ describe("POST /api/events", () => {
       .post("/api/events")
       .send({
         event: {
-          creator_id: '1',
+          creator_id: "1",
           date: "2021-12-12",
           short_description: "Test event",
           description: "Test event description",
           location: "Test location",
           latitude: 1.834,
           longitude: 41.595,
-          event_picture:
-            "https://www.google.com/test.png",
+          event_picture: "https://www.google.com/test.png",
         },
       })
       .expect(201)
@@ -180,7 +177,6 @@ describe("POST /api/events", () => {
       });
   });
 
-  //Error handling
   test("400: responds with a message when passed a bad request", () => {
     return request(app)
       .post("/api/events")
@@ -200,22 +196,21 @@ describe("POST /api/events", () => {
   });
 });
 
-describe("PATCH /api/events/:id", () => {
+describe("PATCH /api/events/:event_id", () => {
   test("200: responds with an event object", () => {
     return request(app)
       .patch("/api/events/1")
       .send({
         event: {
           event_id: 1,
-          creator_id: '1',
+          creator_id: "1",
           date: "2021-12-12",
           short_description: "Test event",
           description: "Test event description",
           location: "Test location",
           latitude: 1.834,
           longitude: 41.595,
-          event_picture:
-            "https://www.google.com/test.png",
+          event_picture: "https://www.google.com/test.png",
         },
       })
       .expect(200)
@@ -236,22 +231,20 @@ describe("PATCH /api/events/:id", () => {
       });
   });
 
-  //Error handling
   test("404: responds with a message when passed a non-existent id", () => {
     return request(app)
       .patch("/api/events/100")
       .send({
         event: {
           event_id: 1,
-          creator_id: '1',
+          creator_id: "1",
           date: "2021-12-12",
           short_description: "Test event",
           description: "Test event description",
           location: "Test location",
           latitude: 1.834,
           longitude: 41.595,
-          event_picture:
-            "https://www.google.com/test.png",
+          event_picture: "https://www.google.com/test.png",
         },
       })
       .expect(404)
@@ -284,7 +277,6 @@ describe("DELETE /api/events/:id", () => {
     return request(app).delete("/api/events/1").expect(204);
   });
 
-  //Error handling
   test("404: responds with a message when passed a non-existent id", () => {
     return request(app)
       .delete("/api/events/100")

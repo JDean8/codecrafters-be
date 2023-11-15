@@ -33,7 +33,7 @@ module.exports = [
     description:
       "Calling all fellow wine lovers - lets meet and have an amazing time at the Barolo vineyard in Torino",
     location: "Torino, Italy",
-    latitude: 	44.608803,
+    latitude: 44.608803,
     longitude: 7.940304,
     event_picture:
       "https://www.the-wyndham.co.uk/wp-content/uploads/2021/03/shutterstock_1815556148-scaled.jpg",
@@ -59,8 +59,8 @@ module.exports = [
     description:
       "Calling all fellow aquarium lovers - lets meet and have an amazing time at the aquarium in Germany",
     location: "Berlin, Germany",
-    latitude: 52.5060,
-    longitude: 13.3410,
+    latitude: 52.506,
+    longitude: 13.341,
     event_picture:
       "https://moustique.lalibre.be/wp-content/uploads/2022/12/639c49c51a137-Belgaimage-37393316-1024x683.jpg",
   },
@@ -138,7 +138,7 @@ module.exports = [
       "Calling all fellow beach lovers - lets meet and have an amazing time at the beach in Mallorca",
     location: "Mallorca, Spain",
     latitude: 39.6004,
-    longitude: 2.6100,
+    longitude: 2.61,
     event_picture:
       "https://usercontent.one/wp/www.mallorca-beaches.com/wp-content/uploads/calo-des-moro-780x470.jpg?media=1698686285",
   },
@@ -174,7 +174,7 @@ module.exports = [
     date: 1673020281000,
     short_description: "Trip to the Museum",
     description:
-      "Calling all fellow museum lovers - lets meet and have an amazing time at the museum in Rome", 
+      "Calling all fellow museum lovers - lets meet and have an amazing time at the museum in Rome",
     location: "Rome, Italy",
     latitude: 41.892944,
     longitude: 12.482558,
@@ -189,7 +189,7 @@ module.exports = [
     description:
       "Calling all fellow park lovers - lets meet and have an amazing time at the park in Madrid",
     location: "Madrid, Spain",
-    latitude: 	40.411106,
+    latitude: 40.411106,
     longitude: -3.691127,
     event_picture:
       "https://a.cdn-hotels.com/gdcs/production86/d1205/3596db38-0609-4f0d-b7be-1a98527384c6.jpg",
@@ -203,7 +203,7 @@ module.exports = [
       "Calling all fellow stadium lovers - lets meet and have an amazing time at the stadium in Milan",
     location: "Milan, Italy",
     latitude: 45.4781,
-    longitude: 9.1240,
+    longitude: 9.124,
     event_picture:
       "https://www.si.com/.image/t_share/MTg2MTQxNjQ3ODgzNDc4MTQ1/milan-stadium-san-siro-cathedral.jpg",
   },
@@ -241,7 +241,7 @@ module.exports = [
     description:
       "Calling all fellow tower lovers - lets meet and have an amazing time at the tower in Pisa",
     location: "Pisa, Italy",
-    latitude: 43.7230,
+    latitude: 43.723,
     longitude: 10.3966,
     event_picture:
       "https://media.vietravel.com/images/NewsPicture/Leaning-Tower-of-Pisa.jpg",
@@ -254,11 +254,9 @@ module.exports = [
     description:
       "Calling all fellow lake lovers - lets meet and have an amazing time at the lake in Como",
     location: "Como, Italy",
-    latitude: 46.0160,
+    latitude: 46.016,
     longitude: 9.2572,
     event_picture:
       "https://media.vietravel.com/images/NewsPicture/Lake-Como_1.jpg",
-  }
-  
-
+  },
 ];

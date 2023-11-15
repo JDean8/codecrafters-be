@@ -19,8 +19,7 @@ exports.selectAllEventsSavedByUser = (user_id, sort_by, order, limit, page) => {
       [user_id]
     )
     .then(({ rows }) => {
-      if (!rows.length)
-        return [];
+      if (!rows.length) return [];
       return rows;
     });
 };
@@ -35,8 +34,7 @@ exports.selectEventSavedByByEventId = (event_id, user_id) => {
       [event_id, user_id]
     )
     .then(({ rows }) => {
-      if (!rows.length)
-        return {};
+      if (!rows.length) return {};
       return rows[0];
     });
 };

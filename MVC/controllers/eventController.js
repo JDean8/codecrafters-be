@@ -46,7 +46,7 @@ exports.patchEvent = (req, res, next) => {
 exports.deleteEvent = (req, res, next) => {
   const { event_idParam } = req.params;
   deleteEvent(event_idParam)
-    .then((event) => {
+    .then(() => {
       res.sendStatus(204);
     })
     .catch(next);

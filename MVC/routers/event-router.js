@@ -14,7 +14,6 @@ const {
   deleteCommentById,
 } = require("../controllers/commentsController");
 
-
 eventRouter.route("/").get(getAllEvents).post(postEvent);
 eventRouter
   .route("/:event_idParam")

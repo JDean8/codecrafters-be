@@ -118,5 +118,5 @@ module.exports = [
   {
     user_id: "3",
     event_id: 2,
-  }
+  },
 ];

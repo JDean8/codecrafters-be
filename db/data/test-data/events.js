@@ -1,7 +1,7 @@
 module.exports = [
   {
     event_id: 1,
-    creator_id: '1',
+    creator_id: "1",
     date: 1697043600000,
     short_description: "Trip to the park",
     description:
@@ -14,7 +14,7 @@ module.exports = [
   },
   {
     event_id: 2,
-    creator_id: '2',
+    creator_id: "2",
     date: 1697444000000,
     short_description: "Trip to the beach",
     description:
@@ -28,7 +28,7 @@ module.exports = [
 
   {
     event_id: 3,
-    creator_id: '3',
+    creator_id: "3",
     date: 1697445600000,
     short_description: "Trip to the vineyard",
     description:
@@ -41,7 +41,7 @@ module.exports = [
   },
   {
     event_id: 4,
-    creator_id: '4',
+    creator_id: "4",
     date: 1899458400000,
     short_description: "Trip to the sea",
     description:
@@ -54,7 +54,7 @@ module.exports = [
   },
   {
     event_id: 5,
-    creator_id: '5',
+    creator_id: "5",
     date: 1704240000000,
     short_description: "Trip to the aquarium",
     description:
@@ -111,11 +111,11 @@ module.exports = [
     date: 1672830502000,
     short_description: "Trip to the Museum",
     description:
-      "Calling all fellow museum lovers - lets meet and have an amazing time at the museum in Rome", 
+      "Calling all fellow museum lovers - lets meet and have an amazing time at the museum in Rome",
     location: "Rome, Italy",
     latitude: 2.653,
     longitude: 39.569,
     event_picture:
       "https://www.mallorca-beaches.com/images/mallorca-beaches.jpg",
-  }
+  },
 ];

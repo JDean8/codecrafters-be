@@ -16,7 +16,7 @@ const seed = ({
   eventsData,
   interests_usersData,
   commentsData,
-  eventsSavedData
+  eventsSavedData,
 }) => {
   return db
     .query(`DROP TABLE IF EXISTS comments;`)
@@ -153,7 +153,7 @@ const seed = ({
             user.name,
             user.profile_pic,
             user.created_at,
-            user.email
+            user.email,
           ];
         })
       );

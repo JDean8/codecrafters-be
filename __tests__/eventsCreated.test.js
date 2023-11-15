@@ -32,8 +32,6 @@ describe("GET /api/users/:user_id/my-events", () => {
       });
   });
 
-  // Error handling
-
   test("status:404, responds with an error message when user_id is not found", () => {
     return request(app)
       .get("/api/users/100/my-events")
@@ -67,8 +65,6 @@ describe("GET /api/users/:user_id/my-events/:event_id", () => {
         );
       });
   });
-
-  // Error handling
 
   test("status:404, responds with an error message when user_id is not found", () => {
     return request(app)
@@ -112,8 +108,6 @@ describe("DELETE /api/users/:user_id/my-events/:event_id", () => {
         );
       });
   });
-
-  // Error handling
 
   test("status:404, responds with an error message when user_id is not found", () => {
     return request(app)
