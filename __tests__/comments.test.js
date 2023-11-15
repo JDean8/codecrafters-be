@@ -27,6 +27,7 @@ describe("GET /api/events/:event_idParam/comments", () => {
         });
       });
   });
+
   test("200: responds with an amount of comments equal to the limit query", () => {
     return request(app)
       .get("/api/events/2/comments?limit=1")
@@ -55,7 +56,6 @@ describe("GET /api/events/:event_idParam/comments", () => {
       });
   });
 
-  //Error handling
   test("404: responds with an error message when given a non-existent event_id", () => {
     return request(app)
       .get("/api/events/999/comments")
@@ -66,7 +66,7 @@ describe("GET /api/events/:event_idParam/comments", () => {
   });
 });
 
-describe("GET /api/events/:event_idParam/comments/:comment_id", () => {
+describe("GET /api/events/:event_id/comments/:comment_id", () => {
   test("200: responds with a comment object for the given comment_id and event_id", () => {
     return request(app)
       .get("/api/events/2/comments/1")
@@ -84,7 +84,6 @@ describe("GET /api/events/:event_idParam/comments/:comment_id", () => {
       });
   });
 
-  //Error handling
   test("404: responds with an error message when given a non-existent comment_id", () => {
     return request(app)
       .get("/api/events/2/comments/999")
@@ -104,7 +103,7 @@ describe("GET /api/events/:event_idParam/comments/:comment_id", () => {
   });
 });
 
-describe("POST /api/events/:event_idParam/comments", () => {
+describe("POST /api/events/:event_id/comments", () => {
   test("201: responds with the posted comment object", () => {
     return request(app)
       .post("/api/events/2/comments")
@@ -128,7 +127,6 @@ describe("POST /api/events/:event_idParam/comments", () => {
       });
   });
 
-  //Error handling
   test("400: responds with an error message when given a missing field", () => {
     return request(app)
       .post("/api/events/2/comments")
@@ -148,8 +146,8 @@ describe("POST /api/events/:event_idParam/comments", () => {
       .post("/api/events/2/comments")
       .send({
         body: "Test comment",
-        user_id: '2',
-        event_id: 'two',
+        user_id: "2",
+        event_id: "two",
         created_at: "2022-12-01 00:00:00",
       })
       .expect(400)
@@ -191,12 +189,11 @@ describe("POST /api/events/:event_idParam/comments", () => {
   });
 });
 
-describe("DELETE /api/events/:event_idParam/comments/:comment_id", () => {
+describe("DELETE /api/events/:event_id/comments/:comment_id", () => {
   test("204: responds with no content", () => {
     return request(app).delete("/api/events/2/comments/1").expect(204);
   });
 
-  //Error handling
   test("404: responds with an error message when given a non-existent comment_id", () => {
     return request(app)
       .delete("/api/events/2/comments/999")

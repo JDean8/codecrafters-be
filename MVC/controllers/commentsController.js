@@ -37,10 +37,7 @@ exports.postComment = (req, res, next) => {
   const promise = [selectEventById(event_idParam), selectUserById(user_id)];
   if (event_idParam && user_id)
     promise.push(
-      insertComment(
-        { body, user_id, event_id, created_at },
-        event_idParam
-      )
+      insertComment({ body, user_id, event_id, created_at }, event_idParam)
     );
   Promise.all(promise)
     .then(([event, user, comment]) => {
@@ -54,7 +51,7 @@ exports.deleteCommentById = (req, res, next) => {
   const promise = [selectEventById(event_idParam)];
   if (event_idParam) promise.push(deleteComment(comment_id));
   Promise.all(promise)
-    .then(([event, comment]) => {
+    .then(() => {
       res.status(204).send();
     })
     .catch(next);

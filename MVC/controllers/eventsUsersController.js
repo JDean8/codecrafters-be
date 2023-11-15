@@ -20,7 +20,10 @@ exports.getEventsUsersByUserId = (req, res, next) => {
   const { userId } = req.params;
   const { sort_by, order, limit, page } = req.query;
   const promise = [selectUserById(userId)];
-  if (userId) promise.push(selectEventsUsersByUserId(userId, sort_by, order, limit, page));
+  if (userId)
+    promise.push(
+      selectEventsUsersByUserId(userId, sort_by, order, limit, page)
+    );
   Promise.all(promise)
     .then(([user, events]) => {
       res.status(200).send({ events });
@@ -44,7 +47,7 @@ exports.deleteEventsUsers = (req, res, next) => {
   const promise = [selectUserById(userId), selectEventById(eventId)];
   if (userId) promise.push(deleteEventsUsers(eventId, userId));
   Promise.all(promise)
-    .then(([user, event, eventsUsers]) => {
+    .then(() => {
       res.status(204).send({});
     })
     .catch(next);

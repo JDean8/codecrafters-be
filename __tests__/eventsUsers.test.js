@@ -25,7 +25,6 @@ describe("GET /api/events-users", () => {
       });
   });
 
-  //Error handling
   test("404: responds with a message when passed a non-existent route", () => {
     return request(app)
       .get("/api/events_user")
@@ -61,7 +60,6 @@ describe("GET /api/users/:user_id/my-events", () => {
       });
   });
 
-  //Error handling
   test("404: responds with a message when passed a non-existent id", () => {
     return request(app)
       .get("/api/users/100/attending-events")
@@ -88,7 +86,6 @@ describe("POST /api/users/:user_id/my-events/:event_id", () => {
       });
   });
 
-  //Error handling
   test("400: responds with a message when passed an invalid event_id", () => {
     return request(app)
       .post("/api/users/5/attending-events/100")
@@ -115,7 +112,6 @@ describe("DELETE /api/users/:user_id/my-events/:event_id", () => {
     return request(app).delete("/api/users/6/attending-events/1").expect(204);
   });
 
-  //Error handling
   test("404: responds with a message when passed a non-existent user_id", () => {
     return request(app)
       .delete("/api/users/100/attending-events/1")

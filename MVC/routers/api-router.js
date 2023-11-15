@@ -3,7 +3,7 @@ const userRouter = require("./user-router");
 const eventsUsersRouter = require("./eventsUsers-router");
 const interestsRouter = require("./interests-router");
 const eventRouter = require("./event-router");
-const {getAllEndpoints}  = require("../controllers/endpointsController");
+const { getAllEndpoints } = require("../controllers/endpointsController");
 
 apiRouter.get("/", getAllEndpoints);
 apiRouter.use("/users", userRouter);

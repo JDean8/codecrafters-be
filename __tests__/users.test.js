@@ -27,7 +27,6 @@ describe("GET /api/users", () => {
       });
   });
 
-  //Error handling
   test("404: responds with a message when passed a non-existent route", () => {
     return request(app)
       .get("/api/user")
@@ -38,7 +37,7 @@ describe("GET /api/users", () => {
   });
 });
 
-describe("GET /api/users/:id", () => {
+describe("GET /api/users/:user_id", () => {
   test("200: responds with a user object", () => {
     return request(app)
       .get("/api/users/1")
@@ -56,7 +55,6 @@ describe("GET /api/users/:id", () => {
       });
   });
 
-  //Error handling
   test("404: responds with a message when passed a non-existent id", () => {
     return request(app)
       .get("/api/users/123")
@@ -73,12 +71,12 @@ describe("POST /api/users", () => {
       .post("/api/users")
       .send({
         user: {
-          user_id: '8',
+          user_id: "8",
           username: "testuser",
           profile_pic: "https://testuser.com",
           name: "test user",
-          created_at: '2022-12-01 00:00:00',
-          email: "fakeemails@gmail.com"
+          created_at: "2022-12-01 00:00:00",
+          email: "fakeemails@gmail.com",
         },
       })
       .expect(201)
@@ -90,13 +88,12 @@ describe("POST /api/users", () => {
             profile_pic: expect.any(String),
             name: expect.any(String),
             created_at: expect.any(String),
-            email: expect.any(String)
+            email: expect.any(String),
           })
         );
       });
   });
 
-  //Error handling
   test("400: responds with a message when passed an invalid user object", () => {
     return request(app)
       .post("/api/users")
@@ -146,7 +143,7 @@ describe("POST /api/users", () => {
   });
 });
 
-describe("PATCH /api/users/:id", () => {
+describe("PATCH /api/users/:user_id", () => {
   test("200: responds with a user object", () => {
     return request(app)
       .patch("/api/users/1")
@@ -171,7 +168,6 @@ describe("PATCH /api/users/:id", () => {
       });
   });
 
-  //Error handling
   test("404: responds with a message when passed a non-existent id", () => {
     return request(app)
       .patch("/api/users/123")
@@ -218,12 +214,11 @@ describe("PATCH /api/users/:id", () => {
   });
 });
 
-describe("DELETE /api/users/:id", () => {
+describe("DELETE /api/users/:user_id", () => {
   test("204: responds with no content", () => {
     return request(app).delete("/api/users/1").expect(204);
   });
 
-  //Error handling
   test("404: responds with a message when passed a non-existent id", () => {
     return request(app)
       .delete("/api/users/123")

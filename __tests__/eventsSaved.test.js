@@ -73,7 +73,6 @@ describe("GET /api/:user_id/events-saved ", () => {
       });
   });
 
-  //Error handling
   test("404: responds with a message when passed a non-existent route", () => {
     return request(app)
       .get("/api/events_saved")
@@ -108,7 +107,7 @@ describe("GET /api/users/:user_id/events-saved/:event_id", () => {
       });
   });
 
-  test ("200: responds with an empty object when passed a user_id that has no events saved", () => {
+  test("200: responds with an empty object when passed a user_id that has no events saved", () => {
     return request(app)
       .get("/api/users/7/events-saved/4")
       .expect(200)
@@ -117,7 +116,6 @@ describe("GET /api/users/:user_id/events-saved/:event_id", () => {
       });
   });
 
-  //Error handling
   test("404: responds with a message when passed a non-existent event_id", () => {
     return request(app)
       .get("/api/users/3/events-saved/100")
@@ -152,7 +150,6 @@ describe("POST /api/users/:user_id/events-saved/:event_id", () => {
       });
   });
 
-  //Error handling
   test("404: responds with a message when passed a non-existent event_id", () => {
     return request(app)
       .post("/api/users/3/events-saved/100")
@@ -177,7 +174,6 @@ describe("DELETE /api/users/:user_id/events-saved/:event_id", () => {
     return request(app).delete("/api/users/3/events-saved/4").expect(204);
   });
 
-  //Error handling
   test("404: responds with a message when passed a non-existent event_id", () => {
     return request(app)
       .delete("/api/users/3/events-saved/100")

@@ -16,14 +16,14 @@ exports.selectAllComments = (event_idParam, limit, page) => {
 };
 
 exports.selectCommentById = (comment_id) => {
-    if (!comment_id) return Promise.reject({ status: 400, msg: "Bad request" });
-    return db
-        .query("SELECT * FROM comments WHERE comment_id = $1", [comment_id])
-        .then(({ rows }) => {
-        if (!rows.length)
-            return Promise.reject({ status: 404, msg: "Comment not found" });
-        return rows[0];
-        });
+  if (!comment_id) return Promise.reject({ status: 400, msg: "Bad request" });
+  return db
+    .query("SELECT * FROM comments WHERE comment_id = $1", [comment_id])
+    .then(({ rows }) => {
+      if (!rows.length)
+        return Promise.reject({ status: 404, msg: "Comment not found" });
+      return rows[0];
+    });
 };
 
 exports.insertComment = (comment, event_idParam) => {
@@ -38,12 +38,7 @@ exports.insertComment = (comment, event_idParam) => {
   return db
     .query(
       "INSERT INTO comments (body, user_id, event_id, created_at ) VALUES ($1, $2, $3, $4 ) RETURNING *",
-      [
-        comment.body,
-        comment.user_id,
-        comment.event_id,
-        comment.created_at,
-      ]
+      [comment.body, comment.user_id, comment.event_id, comment.created_at]
     )
     .then(({ rows }) => {
       if (!rows.length)
@@ -53,12 +48,14 @@ exports.insertComment = (comment, event_idParam) => {
 };
 
 exports.deleteComment = (comment_id) => {
-    if (!comment_id) return Promise.reject({ status: 400, msg: "Bad request" });
-    return db
-        .query("DELETE FROM comments WHERE comment_id = $1 RETURNING *", [comment_id])
-        .then(({ rows }) => {
-        if (!rows.length)
-            return Promise.reject({ status: 404, msg: "Comment not found" });
-        return rows[0];
-        });
+  if (!comment_id) return Promise.reject({ status: 400, msg: "Bad request" });
+  return db
+    .query("DELETE FROM comments WHERE comment_id = $1 RETURNING *", [
+      comment_id,
+    ])
+    .then(({ rows }) => {
+      if (!rows.length)
+        return Promise.reject({ status: 404, msg: "Comment not found" });
+      return rows[0];
+    });
 };
