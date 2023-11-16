@@ -81,6 +81,65 @@
     "queries": [],
     "exampleResponse": ""
   },
+  "GET /api/users/:user_id/trips": {
+    "description": "serves an array of all trips for the specified user_id",
+    "queries": [],
+    "exampleResponse": {
+      "trips": [
+        {
+          "trip_id": 1,
+          "creator_id": "1",
+          "start_date": "2023-12-01T00:00:00.000Z",
+          "end_date": "2023-12-12T00:00:00.000Z",
+          "country": "Spain",
+          "location": "Barcelona"
+        },
+        {
+          "trip_id": 2,
+          "creator_id": "1",
+          "start_date": "2023-12-01T00:00:00.000Z",
+          "end_date": "2023-12-12T00:00:00.000Z",
+          "country": "Spain",
+          "location": "Barcelona"
+        },
+        {
+          "trip_id": 3,
+          "creator_id": "1",
+          "start_date": "2023-12-01T00:00:00.000Z",
+          "end_date": "2023-12-12T00:00:00.000Z",
+          "country": "Spain",
+          "location": "Barcelona"
+        },
+        {
+          "trip_id": 4,
+          "creator_id": "1",
+          "start_date": "2023-12-01T00:00:00.000Z",
+          "end_date": "2023-12-12T00:00:00.000Z",
+          "country": "Spain",
+          "location": "Barcelona"
+        }
+      ]
+    }
+  },
+  "POST /api/users/:user_id/trips": {
+    "description": "serves a new trip object for the specified user_id",
+    "queries": [],
+    "exampleResponse": {
+      "trip": {
+        "trip_id": 1,
+        "creator_id": "1",
+        "start_date": "2023-12-01T00:00:00.000Z",
+        "end_date": "2023-12-12T00:00:00.000Z",
+        "country": "Spain",
+        "location": "Barcelona"
+      }
+    }
+  },
+  "DELETE /api/users/:user_id/trips/:trip_id": {
+    "description": "serves a status 204 and no content",
+    "queries": [],
+    "exampleResponse": ""
+  },
   "GET /api/users/:user_id/interests": {
     "description": "serves an array of all interests for the specified user_id",
     "queries": [],
@@ -251,7 +310,6 @@
       ]
     }
   },
-
   "GET /api/users/:user_id/events-saved/:event_id": {
     "description": "serves an events object saved by the specified user_id",
     "queries": [],
@@ -271,7 +329,6 @@
       ]
     }
   },
-
   "POST /api/users/:user_id/events-saved/:event_id": {
     "description": "serves a new event object events-users for the specified user_id and event_id",
     "queries": [],
@@ -282,13 +339,11 @@
       }
     }
   },
-
   "DELETE /api/users/:user_id/events-saved/:event_id": {
     "description": "serves a status 204 and no content",
     "queries": [],
     "exampleResponse": ""
   },
-
   "GET /api/users/:user_id/my-events": {
     "description": "serves an array of all events created by the specified user_id",
     "queries": [],
@@ -319,7 +374,6 @@
       ]
     }
   },
-
   "GET /api/users/:user_id/my-events/:event_id": {
     "description": "serves an event object created by the specified user_id",
     "queries": [],
@@ -354,7 +408,6 @@
       }
     }
   },
-
   "GET /api/interests": {
     "description": "serves an array of all interests",
     "queries": [],
