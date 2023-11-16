@@ -10,7 +10,7 @@ exports.selectAllComments = (event_idParam, limit, page) => {
     .query(SQL, [event_idParam, limitAux, offsetAux])
     .then(({ rows }) => {
       if (!rows.length)
-        return Promise.reject({ status: 404, msg: "Comments not found" });
+        return [];
       return rows;
     });
 };

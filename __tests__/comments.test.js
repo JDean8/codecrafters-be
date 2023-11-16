@@ -28,6 +28,15 @@ describe("GET /api/events/:event_idParam/comments", () => {
       });
   });
 
+  test("200: responds with an empty array when given an event with no comments", () => {
+    return request(app)
+      .get("/api/events/6/comments")
+      .expect(200)
+      .then(({ body: { comments } }) => {
+        expect(comments).toEqual([]);
+      });
+  });
+
   test("200: responds with an amount of comments equal to the limit query", () => {
     return request(app)
       .get("/api/events/2/comments?limit=1")
