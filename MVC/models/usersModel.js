@@ -72,14 +72,15 @@ exports.deleteUser = (id) => {
 };
 
 exports.selectUserTrips = (user_id) => {
-  return db
-    .query(
-      "SELECT * FROM trips WHERE creator_id = $1 ORDER BY start_date DESC",
-      [user_id]
-    )
+  return this.selectUserById(user_id)
+    .then(() => {
+      return db.query(
+        "SELECT * FROM trips WHERE creator_id = $1 ORDER BY start_date DESC",
+        [user_id]
+      );
+    })
     .then(({ rows }) => {
-      if (!rows.length)
-        return Promise.reject({ status: 404, msg: "User not found" });
+      if (!rows.length) return [];
       return rows;
     });
 };

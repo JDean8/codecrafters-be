@@ -78,6 +78,15 @@ describe("POST /api/users/:user_id/trips", () => {
       });
   });
 
+  test("status:200, responds with the empty array if there are no trips for particular user", () => {
+    return request(app)
+      .get("/api/users/7/trips")
+      .expect(200)
+      .then(({ body }) => {
+        expect(body.trips).toHaveLength(0);
+      });
+  });
+
   test("status:400, responds with an error message when given an invalid trip", () => {
     return request(app)
       .post("/api/users/1/trips")
@@ -124,7 +133,7 @@ describe("DELETE /api/users/:user_id/trips/:trip_id", () => {
         expect(body.msg).toBe("User not found");
       });
   });
-  
+
   test("status:404, responds with an error message when given a non-existent trip_id", () => {
     return request(app)
       .delete("/api/users/1/trips/1000")
